@@ -309,6 +309,9 @@ dialog.q::backdrop{background:rgba(18,20,16,.52);-webkit-backdrop-filter:blur(3p
 .q-input{display:block;width:100%;min-height:58px;margin-top:8px;border:1px solid var(--line);border-radius:14px;padding:0 16px;font:500 18px/1 var(--font);background:#fff;color:var(--ink)}
 .q-input:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px rgba(18,20,16,.09)}
 .q-input[aria-invalid="true"]{border-color:#B4483C}
+.q-other{margin-top:4px;animation:fade .2s ease}
+.q-other .q-label{margin-top:18px}
+.q-other .btn{margin-top:4px}
 .hp{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
 .q-error{min-height:22px;margin-top:8px;color:#B4483C;font-size:14.5px}
 .q-fine{margin-top:12px;color:var(--faint);font-size:13.5px}
@@ -620,6 +623,12 @@ dialog.q::backdrop{background:rgba(18,20,16,.52);-webkit-backdrop-filter:blur(3p
           <button type="button" class="q-opt" data-field="Pharmacy" aria-pressed="false">Pharmacy<span class="tick"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span></button>
           <button type="button" class="q-opt span" data-field="Other" aria-pressed="false">Another field<span class="tick"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span></button>
         </div>
+        <div class="q-other" id="q-other" hidden>
+          <label class="q-label" for="q-field-other">What's your field or profession?</label>
+          <input class="q-input" id="q-field-other" type="text" maxlength="100" autocomplete="off" autocapitalize="words" enterkeyhint="next" spellcheck="false" placeholder="For example: Dentistry">
+          <p class="q-error" id="q-other-error" role="alert"></p>
+          <button type="button" class="btn btn-ink btn-block btn-lg" id="q-other-next">Continue<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        </div>
       </section>
 
       <section class="q-step" data-step="1" hidden>
@@ -724,7 +733,7 @@ dialog.q::backdrop{background:rgba(18,20,16,.52);-webkit-backdrop-filter:blur(3p
     Other: 'Professional license'
   };
   var CREDENTIAL = { License: 'license', Degree: 'degree', Other: 'experience' };
-  var state = { step: 0, field: '', method: '', years: '', email: '', done: false };
+  var state = { step: 0, field: '', fieldOther: '', method: '', years: '', email: '', done: false };
   var advancing = false;
 
   function pressed(attr, value) {
@@ -742,6 +751,7 @@ dialog.q::backdrop{background:rgba(18,20,16,.52);-webkit-backdrop-filter:blur(3p
     $('#q-progress').setAttribute('aria-valuenow', String(pct));
     $('[data-q-back]', dlg).style.visibility = (step > 0 && !state.done) ? 'visible' : 'hidden';
     pressed('data-field', state.field);
+    $('#q-other').hidden = state.field !== 'Other';
     pressed('data-method', state.method);
     pressed('data-years', state.years);
     $('#q-license').textContent = LICENSE[state.field] || LICENSE.Other;
@@ -774,8 +784,21 @@ dialog.q::backdrop{background:rgba(18,20,16,.52);-webkit-backdrop-filter:blur(3p
 
   dlg.addEventListener('close', function () { document.documentElement.classList.remove('is-locked'); });
 
+  // Picking "Another field" opens a box to type the field. Every other field moves on by itself.
   function choose(key, value) {
     if (advancing) return;
+    if (key === 'field' && value === 'Other') {
+      state.field = 'Other';
+      render(false);
+      track('winston_qualifier_step', { step: 1, answer: 'Other' });
+      $('#q-field-other').focus();
+      return;
+    }
+    if (key === 'field') {
+      state.fieldOther = '';
+      $('#q-field-other').value = '';
+      $('#q-other-error').textContent = '';
+    }
     advancing = true;
     state[key] = value;
     render(false);
@@ -786,6 +809,33 @@ dialog.q::backdrop{background:rgba(18,20,16,.52);-webkit-backdrop-filter:blur(3p
       render(true);
     }, 180);
   }
+
+  function continueFromOther() {
+    var input = $('#q-field-other');
+    var error = $('#q-other-error');
+    var value = input.value.replace(/\s+/g, ' ').trim();
+    if (value.length < 2) {
+      error.textContent = 'Tell us your field so we can match you with the right missions.';
+      input.setAttribute('aria-invalid', 'true');
+      input.focus();
+      return;
+    }
+    error.textContent = '';
+    input.removeAttribute('aria-invalid');
+    input.value = value;
+    state.fieldOther = value;
+    track('winston_qualifier_other', { length: value.length });
+    state.step = 1;
+    render(true);
+  }
+  $('#q-other-next').addEventListener('click', continueFromOther);
+  $('#q-field-other').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') { e.preventDefault(); continueFromOther(); }
+  });
+  $('#q-field-other').addEventListener('input', function () {
+    $('#q-other-error').textContent = '';
+    this.removeAttribute('aria-invalid');
+  });
 
   dlg.addEventListener('click', function (e) {
     if (e.target === dlg) { closeQualifier(); return; }
@@ -824,6 +874,7 @@ dialog.q::backdrop{background:rgba(18,20,16,.52);-webkit-backdrop-filter:blur(3p
   function submitLead() {
     var payload = {
       field: state.field,
+      field_other: state.field === 'Other' ? state.fieldOther : '',
       verification: state.method,
       years: state.years,
       email: state.email,
