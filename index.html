@@ -309,6 +309,7 @@ dialog.q::backdrop{background:rgba(18,20,16,.52);-webkit-backdrop-filter:blur(3p
 .q-input{display:block;width:100%;min-height:58px;margin-top:8px;border:1px solid var(--line);border-radius:14px;padding:0 16px;font:500 18px/1 var(--font);background:#fff;color:var(--ink)}
 .q-input:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px rgba(18,20,16,.09)}
 .q-input[aria-invalid="true"]{border-color:#B4483C}
+.hp{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
 .q-error{min-height:22px;margin-top:8px;color:#B4483C;font-size:14.5px}
 .q-fine{margin-top:12px;color:var(--faint);font-size:13.5px}
 .q-foot{display:flex;flex-wrap:wrap;gap:6px 16px;padding:14px 24px calc(18px + env(safe-area-inset-bottom));border-top:1px solid var(--line-soft);color:var(--muted);font-size:13.5px}
@@ -647,10 +648,11 @@ dialog.q::backdrop{background:rgba(18,20,16,.52);-webkit-backdrop-filter:blur(3p
         <h2 class="q-title" tabindex="-1">Where should we reach you?</h2>
         <p class="q-help">We'll email you within 2 business days about verification and your first missions.</p>
         <form id="q-form" novalidate>
+          <div class="hp" aria-hidden="true"><label for="q-ref">Reference code, leave blank</label><input id="q-ref" name="reference_code" type="text" tabindex="-1" autocomplete="off"></div>
           <label class="q-label" for="q-email">Email address</label>
           <input class="q-input" id="q-email" type="email" name="email" autocomplete="email" inputmode="email" enterkeyhint="go" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="you@email.com" required>
           <p class="q-error" id="q-error" role="alert"></p>
-          <button type="submit" class="btn btn-ink btn-block btn-lg">Check my eligibility<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          <button type="submit" class="btn btn-ink btn-block btn-lg"><span id="q-submit-label">Check my eligibility</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></button>
           <p class="q-fine">We'll only use your email to contact you about Winston.</p>
         </form>
       </section>
@@ -680,10 +682,8 @@ dialog.q::backdrop{background:rgba(18,20,16,.52);-webkit-backdrop-filter:blur(3p
 (function () {
   'use strict';
 
-  // Where sign-ups go. Any URL that accepts a JSON POST works (a form backend,
-  // a Supabase edge function, a Vercel function). While this is empty, sign-ups
-  // are only logged to the browser console, so nothing is collected.
-  var SIGNUP_ENDPOINT = '';
+  // Sign-ups are saved by the Vercel function in api/signup.js (Postgres on Neon).
+  var SIGNUP_ENDPOINT = '/api/signup';
 
   var $ = function (s, el) { return (el || document).querySelector(s); };
   var $$ = function (s, el) { return Array.prototype.slice.call((el || document).querySelectorAll(s)); };
@@ -820,51 +820,83 @@ dialog.q::backdrop{background:rgba(18,20,16,.52);-webkit-backdrop-filter:blur(3p
     $('#r-next').hidden = !fit;
   }
 
+  // Sends the sign-up to the server. Resolves with { status, data }; rejects on a network error or timeout.
   function submitLead() {
     var payload = {
       field: state.field,
       verification: state.method,
       years: state.years,
       email: state.email,
-      likely_fit: likelyFit(),
-      page: location.href.split(/[?#]/)[0],
-      submitted_at: new Date().toISOString()
+      reference_code: $('#q-ref').value
     };
     for (var k in attribution) payload[k] = attribution[k];
-    if (SIGNUP_ENDPOINT) {
-      try {
-        fetch(SIGNUP_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(payload),
-          keepalive: true
-        }).catch(function () {});
-      } catch (err) {}
-    } else if (window.console) {
-      console.info('[Winston] SIGNUP_ENDPOINT is empty, so this sign-up was not sent anywhere:', payload);
-    }
+    var controller = 'AbortController' in window ? new AbortController() : null;
+    var timer = controller ? window.setTimeout(function () { controller.abort(); }, 12000) : null;
+    return fetch(SIGNUP_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload),
+      signal: controller ? controller.signal : undefined
+    }).then(function (res) {
+      return res.json().catch(function () { return {}; }).then(function (data) { return { status: res.status, data: data }; });
+    }).then(function (result) {
+      if (timer) window.clearTimeout(timer);
+      return result;
+    }, function (err) {
+      if (timer) window.clearTimeout(timer);
+      throw err;
+    });
+  }
+
+  // Ad and analytics events fire only after the sign-up is saved.
+  function trackLead() {
     if (typeof window.fbq === 'function') window.fbq('track', 'Lead', { content_category: state.field });
     if (typeof window.gtag === 'function') window.gtag('event', 'generate_lead', { field: state.field });
     track('winston_lead', { field: state.field, likely_fit: likelyFit() });
   }
 
+  var sending = false;
   $('#q-form').addEventListener('submit', function (e) {
     e.preventDefault();
+    if (sending) return;
     var input = $('#q-email');
+    var error = $('#q-error');
+    var button = $('#q-form button[type="submit"]');
+    var label = $('#q-submit-label');
     var value = input.value.trim();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value)) {
-      $('#q-error').textContent = 'Enter a valid email so we can reach you.';
+      error.textContent = 'Enter a valid email so we can reach you.';
       input.setAttribute('aria-invalid', 'true');
       input.focus();
       return;
     }
-    $('#q-error').textContent = '';
+    error.textContent = '';
     input.removeAttribute('aria-invalid');
     state.email = value;
-    submitLead();
-    state.done = true;
-    showResult();
-    render(true);
+
+    sending = true;
+    button.disabled = true;
+    label.textContent = 'Sending\u2026';
+    submitLead().then(function (result) {
+      if (result.status >= 200 && result.status < 300 && result.data && result.data.ok) {
+        trackLead();
+        state.done = true;
+        showResult();
+        render(true);
+      } else if (result.data && result.data.error === 'invalid_email') {
+        error.textContent = 'Enter a valid email so we can reach you.';
+        input.setAttribute('aria-invalid', 'true');
+        input.focus();
+      } else {
+        error.textContent = 'We could not save that just now. Please try again in a moment.';
+      }
+    }).catch(function () {
+      error.textContent = 'We could not reach the server. Check your connection and try again.';
+    }).then(function () {
+      sending = false;
+      button.disabled = false;
+      label.textContent = 'Check my eligibility';
+    });
   });
 
   // Every CTA on the page opens the same qualifier.

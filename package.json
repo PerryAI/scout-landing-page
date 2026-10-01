@@ -1,0 +1,14 @@
+{
+  "name": "winston-landing",
+  "private": true,
+  "type": "module",
+  "description": "Winston landing page with a Postgres-backed sign-up endpoint on Vercel.",
+  "engines": { "node": "24.x" },
+  "scripts": {
+    "migrate": "node scripts/migrate.mjs",
+    "leads": "node scripts/leads.mjs"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.1.0"
+  }
+}
