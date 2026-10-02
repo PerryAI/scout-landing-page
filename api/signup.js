@@ -2,7 +2,7 @@
 // One row per email. Submitting again updates that row instead of adding a duplicate.
 import { neon } from '@neondatabase/serverless';
 
-const FIELDS = ['Nursing', 'Medicine', 'Law', 'Engineering', 'Accounting', 'Pharmacy', 'Other'];
+const FIELDS = ['Nursing', 'Medicine', 'Law', 'Engineering', 'Accounting', 'Pharmacy', 'Consulting', 'Finance', 'Other'];
 const VERIFICATIONS = ['License', 'Degree', 'Other'];
 const YEARS = ['Less than 2', '2–4', '5–9', '10–19', '20+'];
 const ATTRIBUTION = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid', 'gclid'];
