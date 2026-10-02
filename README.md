@@ -2,6 +2,10 @@
 
 `index.html` is the landing page (static, no build step). `api/signup.js` is the Vercel function that saves form sign-ups to a Postgres database (Neon, installed from the Vercel Marketplace).
 
+## The waitlist
+
+Every sign-up is a waitlist entry. The `status` column starts as `waitlist`. When you reach out to someone, set their `status` to `invited` (or any label) in the Neon table view so you can filter on it.
+
 ## How a sign-up is saved
 
 1. The 4-step form in `index.html` POSTs JSON to `/api/signup`.
