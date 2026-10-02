@@ -214,8 +214,8 @@ h2{margin-top:16px;font-size:clamp(32px,4.2vw,50px);line-height:1.05;letter-spac
 .val{font:500 12.5px/1.8 var(--mono);color:var(--good);white-space:nowrap;text-transform:uppercase;letter-spacing:.05em}
 .val-bonus{color:var(--accent-ink);background:var(--accent);padding:1px 8px;border-radius:6px}
 @media (max-width:560px){
-  .val:not(.val-bonus){display:grid;place-items:center;flex:none;width:24px;height:24px;margin-top:2px;border-radius:99px;background:rgba(30,122,77,.12);font-size:0;line-height:0;padding:0}
-  .val:not(.val-bonus)::after{content:"";width:9px;height:5px;border:2px solid var(--good);border-top:0;border-right:0;transform:translateY(-1px) rotate(-45deg)}
+  /* The green check is an SVG centered inside the circle, so it cannot drift off-center. */
+  .val:not(.val-bonus){flex:none;width:24px;height:24px;margin-top:2px;padding:0;border-radius:99px;font-size:0;line-height:0;background:rgba(30,122,77,.12) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m4.5 10.2 3.6 3.6L15.5 6.2' fill='none' stroke='%231E7A4D' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 14px 14px no-repeat}
 }
 .total{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 0 24px}
 .total span{font-size:17px;font-weight:650}
@@ -340,7 +340,7 @@ dialog.q::backdrop{background:rgba(18,20,16,.52);-webkit-backdrop-filter:blur(3p
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <symbol id="i-arrow" viewBox="0 0 20 20"><path d="M4 10h11.5M11 5.5 15.5 10 11 14.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-  <symbol id="i-check" viewBox="0 0 20 20"><path d="m4.5 10.5 3.6 3.6L15.5 6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-check" viewBox="0 0 20 20"><path d="m4.5 10.2 3.6 3.6L15.5 6.2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-x" viewBox="0 0 20 20"><path d="m5.5 5.5 9 9m0-9-9 9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
   <symbol id="i-plus" viewBox="0 0 20 20"><path d="M10 4v12M4 10h12" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
   <symbol id="i-back" viewBox="0 0 20 20"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
