@@ -101,11 +101,9 @@ h1 .l{display:block}
 .panel-meta{margin-top:3px;font-size:13.5px;color:var(--muted)}
 .scenario{margin-top:14px;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid var(--line);font-size:14px;line-height:1.5;color:rgba(240,240,240,.86)}
 .ask{margin-top:14px;font-size:14px;font-weight:500}
-.answer{position:relative;margin-top:10px;max-height:150px;overflow:hidden;padding:12px 14px;border-radius:12px;border:1px solid var(--line-2);background:#0b0c0f;font-size:14px;line-height:1.5;color:rgba(240,240,240,.9)}
-.answer p+p{margin-top:8px}
-.answer::after{content:"";position:absolute;left:0;right:0;bottom:0;height:48px;background:linear-gradient(rgba(11,12,15,0),#0b0c0f);pointer-events:none}
+.answer{position:relative;margin-top:10px;max-height:74px;overflow:hidden;padding:12px 14px;border-radius:12px;border:1px solid var(--line-2);background:#0b0c0f;font-size:14px;line-height:1.5;color:rgba(240,240,240,.9)}
+.answer::after{content:"";position:absolute;left:0;right:0;bottom:0;height:30px;background:linear-gradient(rgba(11,12,15,0),#0b0c0f);pointer-events:none}
 .caret{display:inline-block;width:1.5px;height:1.05em;margin-left:2px;vertical-align:-2px;background:var(--text)}
-.answer-foot{display:flex;justify-content:space-between;gap:12px;margin-top:8px;font-size:12.5px;color:var(--muted)}
 .opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
 .opts span{display:flex;align-items:center;justify-content:center;gap:6px;min-height:40px;border-radius:999px;border:1px solid var(--line-2);font-size:14px;color:var(--muted)}
 .opts .on{background:var(--light);border-color:var(--light);color:#050505;font-weight:500}
@@ -301,13 +299,9 @@ dialog.q::backdrop{background:rgba(0,0,0,.72)}
         <div class="panel-top"><span>Example mission</span><span>20 min · <b>$75</b></span></div>
         <h3 class="panel-title">What would you do?</h3>
         <p class="panel-meta">Nursing · Written response</p>
-        <p class="scenario">You're the night nurse for a 68-year-old man, one day after hip surgery, on a morphine pump. At 2 a.m. he's breathing 8 times a minute, his oxygen is 88%, and he only wakes when you say his name loudly.</p>
-        <p class="ask">In your own words, what would you do, and why?</p>
-        <div class="answer">
-          <p>I'd stop the morphine pump right away and try to rouse him: say his name, rub his sternum, and sit him up. I'd put him on oxygen and call a rapid response.</p>
-          <p>While help is on the way, I'd stay with him, keep watching his breathing and oxygen, and get naloxone ready per our protocol. His slow breathing and drowsiness point to too much opioid, so the pump comes first.<span class="caret"></span></p>
-        </div>
-        <div class="answer-foot"><span>Typed answer</span><span>1 to 3 paragraphs</span></div>
+        <p class="scenario">Post-op patient on a morphine pump. Breathing 8 times a minute, oxygen 88%, hard to wake.</p>
+        <p class="ask">What would you do, and why?</p>
+        <p class="answer">I'd stop the pump, rouse him, start oxygen, and call a rapid response. His slow breathing points to too much opioid, so<span class="caret"></span></p>
       </article>
     </div>
   </section>
