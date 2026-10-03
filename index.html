@@ -152,7 +152,6 @@ h2{font:400 clamp(38px,9.6vw,58px)/1.02 var(--serif);letter-spacing:-.03em;text-
 .figures li:nth-child(-n+2){border-bottom:1px solid var(--line)}
 .fig{font:400 clamp(29px,8.6vw,56px)/1 var(--serif);letter-spacing:-.025em;white-space:nowrap}
 .figures p{font-size:15.5px;font-weight:500;line-height:1.35;color:rgba(240,240,240,.82);text-wrap:balance}
-.after{margin-top:28px}
 @media (max-width:359px){.figures{grid-template-columns:1fr}.figures li{min-height:0}.figures li:nth-child(odd){border-right:0}.figures li:not(:last-child){border-bottom:1px solid var(--line)}}
 @media (min-width:700px){
   .sky-card{padding:72px 64px}
@@ -165,6 +164,21 @@ h2{font:400 clamp(38px,9.6vw,58px)/1.02 var(--serif);letter-spacing:-.03em;text-
   .figures{grid-template-columns:repeat(4,minmax(0,1fr))}
   .figures li:nth-child(n){border-bottom:0;border-right:1px solid var(--line)}
   .figures li:last-child{border-right:0}
+}
+
+/* How it works: a numbered step-by-step timeline */
+.timeline{margin-top:34px;padding:6px 20px;border-radius:24px;background:var(--card);border:1px solid var(--line)}
+.timeline li{position:relative;display:grid;grid-template-columns:32px 1fr;gap:16px;align-items:start;padding:20px 0}
+.timeline li:not(:last-child)::before{content:"";position:absolute;left:16px;top:58px;bottom:-14px;width:1px;background:var(--line-2)}
+.dot{width:32px;height:32px;border-radius:999px;border:1px solid var(--line-2);background:#16181b;display:grid;place-items:center;font:600 14px/1 var(--sans)}
+.timeline p{padding-top:4px;font-size:17px;line-height:1.45;color:var(--muted);text-wrap:pretty}
+.timeline b{font-weight:500;color:var(--text)}
+.after{margin-top:28px}
+@media (min-width:900px){
+  .timeline{display:grid;grid-template-columns:repeat(4,1fr);padding:36px 32px}
+  .timeline li{grid-template-columns:1fr;gap:20px;padding:0 28px 0 0}
+  .timeline li:not(:last-child)::before{left:44px;right:12px;top:16px;bottom:auto;width:auto;height:1px}
+  .timeline p{padding-top:0;font-size:18px}
 }
 
 /* Questions */
@@ -366,14 +380,12 @@ dialog.q::backdrop{background:rgba(0,0,0,.72)}
   <section class="section" id="how" style="padding-top:0">
     <div class="wrap">
       <h2>How it works</h2>
-      <div class="sky-card" style="--pos:85% 45%">
-        <ol class="figures">
-          <li><span class="fig">01</span><p>Join the waitlist in two minutes</p></li>
-          <li><span class="fig">02</span><p>We email you when a spot opens</p></li>
-          <li><span class="fig">03</span><p>Get verified</p></li>
-          <li><span class="fig">04</span><p>Pick missions and get paid</p></li>
-        </ol>
-      </div>
+      <ol class="timeline">
+        <li><span class="dot">1</span><p><b>Join the waitlist.</b> It takes about two minutes.</p></li>
+        <li><span class="dot">2</span><p><b>Hear from us.</b> We email you when a spot opens in your field.</p></li>
+        <li><span class="dot">3</span><p><b>Get verified.</b> We confirm your license, degree, or experience.</p></li>
+        <li><span class="dot">4</span><p><b>Start earning.</b> Pick the missions you want and get paid through PayPal.</p></li>
+      </ol>
       <div class="after"><button type="button" class="btn btn-light" data-open-qualifier>Join the waitlist</button></div>
     </div>
   </section>
