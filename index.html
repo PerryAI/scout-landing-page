@@ -153,27 +153,27 @@ h2{font:400 clamp(38px,9.6vw,58px)/1.02 var(--serif);letter-spacing:-.03em;text-
 .memo{display:grid;gap:7px;margin-top:12px;padding:12px;border-radius:11px;border:1px solid var(--line-2)}
 @media (min-width:900px){.cards{grid-template-columns:repeat(3,1fr);gap:20px}}
 
-/* Sky card with a glass panel of figures, shared by the details and how it works */
+/* The practical details: a sky card holding a glass panel of figures */
 .sky-card{margin-top:34px;padding:40px 16px;border-radius:24px;border:1px solid var(--line);background:#0a1524 var(--sky-wide) var(--pos, center) / cover no-repeat}
-.figures{display:grid;grid-template-columns:1fr 1fr;border-radius:16px;overflow:hidden;background:rgba(10,12,16,.72);border:1px solid rgba(255,255,255,.12);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
-.figures li{display:flex;flex-direction:column;justify-content:space-between;gap:28px;min-height:156px;padding:18px 16px}
-.figures li:nth-child(odd){border-right:1px solid var(--line)}
-.figures li:nth-child(-n+2){border-bottom:1px solid var(--line)}
-.fig{font:400 clamp(29px,8.6vw,56px)/1 var(--serif);letter-spacing:-.025em;white-space:nowrap}
-.figures p{font-size:15.5px;font-weight:500;line-height:1.35;color:rgba(240,240,240,.82);text-wrap:balance}
-@media (max-width:359px){.figures{grid-template-columns:1fr}.figures li{min-height:0}.figures li:nth-child(odd){border-right:0}.figures li:not(:last-child){border-bottom:1px solid var(--line)}}
+.figures{display:grid;border-radius:16px;overflow:hidden;background:rgba(10,12,16,.72);border:1px solid rgba(255,255,255,.12);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
+/* Phones: one figure per row, the figure on the left and its label on the right */
+.figures li{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 18px}
+.figures li:not(:last-child){border-bottom:1px solid var(--line)}
+/* Figures use the same sans as the mission panels, heavy and tight; labels are lighter so the two contrast */
+.fig{font:600 clamp(28px,8.6vw,40px)/1 var(--sans);letter-spacing:-.045em;white-space:nowrap;font-variant-numeric:tabular-nums}
+.figures p{max-width:13ch;font-size:15px;font-weight:400;line-height:1.35;color:rgba(240,240,240,.62);text-align:right;text-wrap:balance}
+@media (max-width:359px){.figures li{flex-direction:column;align-items:flex-start;gap:8px}.figures p{max-width:none;text-align:left}}
 @media (min-width:700px){
   .sky-card{padding:72px 64px}
-  .figures{max-width:1000px;margin:0 auto}
-  .figures li{min-height:220px;padding:28px 24px}
-  .fig{font-size:56px}
-  .figures p{font-size:16px}
+  .figures{grid-template-columns:1fr 1fr;max-width:1000px;margin:0 auto}
+  .figures li{flex-direction:column;align-items:flex-start;justify-content:space-between;gap:28px;min-height:220px;padding:28px 26px}
+  .figures li:nth-child(n){border-bottom:0}
+  .figures li:nth-child(odd){border-right:1px solid var(--line)}
+  .figures li:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .fig{font-size:clamp(44px,6.4vw,56px)}
+  .figures p{max-width:none;font-size:16px;text-align:left}
 }
-@media (min-width:1100px){
-  .figures{grid-template-columns:repeat(4,minmax(0,1fr))}
-  .figures li:nth-child(n){border-bottom:0;border-right:1px solid var(--line)}
-  .figures li:last-child{border-right:0}
-}
+
 
 /* How it works: a numbered step-by-step timeline */
 .timeline{margin-top:34px;padding:6px 20px;border-radius:24px;background:var(--card);border:1px solid var(--line)}
