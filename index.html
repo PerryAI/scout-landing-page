@@ -72,10 +72,10 @@ a,button,label,input{touch-action:manipulation;-webkit-tap-highlight-color:trans
 .hero-stage{position:relative;margin-top:104px}
 .hero-clouds{position:absolute;z-index:0;left:50%;top:0;width:900px;aspect-ratio:1600/760;transform:translate(-50%,-59.2%);background:var(--hero-clouds) center / 100% 100% no-repeat;pointer-events:none}
 .hero-inner{position:relative;z-index:1;max-width:820px;text-align:center}
-h1{font:400 clamp(46px,12.4vw,86px)/.98 var(--serif);letter-spacing:-.03em;color:#f4f4f4;text-wrap:balance;text-shadow:0 2px 30px rgba(8,18,32,.55)}
-.lede{max-width:36ch;margin:22px auto 0;font-size:clamp(16px,4.3vw,18px);line-height:1.55;color:rgba(240,240,240,.84);text-wrap:pretty;text-shadow:0 1px 18px rgba(8,18,32,.7)}
-.hero-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:30px}
-.hero-note{margin-top:16px;font-size:14px;color:rgba(240,240,240,.62)}
+h1{font:400 clamp(50px,14.4vw,86px)/1 var(--serif);letter-spacing:-.03em;color:#f4f4f4;text-wrap:balance;text-shadow:0 2px 30px rgba(8,18,32,.55)}
+.lede{max-width:36ch;margin:26px auto 0;font-size:clamp(16px,4.3vw,18px);line-height:1.55;color:rgba(240,240,240,.84);text-wrap:pretty;text-shadow:0 1px 18px rgba(8,18,32,.7)}
+.hero-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:22px}
+.hero-note{margin-top:14px;font-size:14px;color:rgba(240,240,240,.62)}
 .hero-card{position:relative;z-index:1;max-width:440px;margin:0 auto}
 @media (min-width:700px){.hero-stage{margin-top:150px}.hero-clouds{width:max(1600px,112vw)}}
 @media (min-width:900px){
@@ -198,18 +198,19 @@ h2{font:400 clamp(38px,9.6vw,58px)/1.02 var(--serif);letter-spacing:-.03em;text-
 }
 
 /* Closing */
-.final{position:relative;overflow:hidden;padding:132px 0 150px;text-align:center;background:#0a1524 var(--sky-tall) center / cover no-repeat}
-.final::before,.final::after{content:"";position:absolute;left:0;right:0;height:34%;pointer-events:none}
-.final::before{top:0;background:linear-gradient(#000, rgba(0,0,0,0))}
-.final::after{bottom:0;background:linear-gradient(rgba(0,0,0,0), #000)}
+.final{position:relative;overflow:hidden;padding:132px 0 150px;text-align:center;
+  /* Fades to black at the top and bottom are part of the background itself: separate overlay layers left a hairline seam in Safari */
+  background:linear-gradient(#000, #000 5.5%, rgba(0,0,0,.75) 17.5%, rgba(0,0,0,.3) 32%, rgba(0,0,0,0) 46%, rgba(0,0,0,0) 66%, rgba(0,0,0,.35) 76%, rgba(0,0,0,.8) 86%, #000 94%),
+    #0a1524 var(--hero-sky) center / 100% 100% no-repeat}
+.final h2{font-size:clamp(50px,14.4vw,80px);line-height:1}
 .final .wrap{position:relative;z-index:1;max-width:640px}
 .final p{max-width:38ch;margin:18px auto 0;font-size:17px;color:rgba(240,240,240,.8)}
 .final .btn{margin-top:30px}
-@media (min-width:700px){.final{background-image:var(--sky-wide);padding:210px 0 230px}.final::before,.final::after{height:26%}}
+@media (min-width:700px){.final{padding:210px 0 230px;background-image:linear-gradient(#000, #000 4.8%, rgba(0,0,0,.75) 15%, rgba(0,0,0,.3) 28%, rgba(0,0,0,0) 40%, rgba(0,0,0,0) 60%, rgba(0,0,0,.35) 72%, rgba(0,0,0,.8) 84%, #000 93%), var(--sky-wide);background-size:100% 100%, cover}}
 
 /* Footer */
-.site-footer{padding:36px 0 calc(40px + env(safe-area-inset-bottom));border-top:1px solid var(--line);font-size:14px;color:var(--faint)}
-.foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px}
+.site-footer{padding:8px 0 calc(48px + env(safe-area-inset-bottom));font-size:14px;color:var(--faint)}
+.foot{display:flex;justify-content:center}
 .foot .brand{color:var(--text)}
 
 /* Sign-up sheet */
@@ -425,7 +426,6 @@ dialog.q::backdrop{background:rgba(0,0,0,.72)}
 <footer class="site-footer" id="footer">
   <div class="wrap foot">
     <span class="brand"><svg aria-hidden="true"><use href="#logo"/></svg><span>Winston</span></span>
-    <span>Paid review work for licensed professionals · © 2026 Winston</span>
   </div>
 </footer>
 
