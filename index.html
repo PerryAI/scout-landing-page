@@ -112,12 +112,14 @@ h2{font:400 clamp(38px,9.6vw,58px)/1.02 var(--serif);letter-spacing:-.03em;text-
   .head .sub{margin-top:0;justify-self:end;max-width:42ch}
 }
 
-/* Who it's for */
+/* Who it's for: its own gradient panel, set apart from the hero above and the missions below */
+.who-panel{padding:40px 22px 36px;border-radius:28px;border:1px solid var(--line-2);background:radial-gradient(120% 70% at 50% 0%, rgba(84,116,148,.42), rgba(84,116,148,0) 72%), linear-gradient(180deg, #101a26, #08090c)}
+@media (min-width:900px){.who-panel{padding:64px 56px 56px}}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
 .chips li{padding:9px 15px;border-radius:999px;border:1px solid var(--line-2);background:rgba(255,255,255,.03);font-size:14.5px}
 .note{margin-top:22px;font-size:15px;color:var(--muted)}
 
-/* What the work looks like */
+/* What the missions look like */
 .cards{display:grid;gap:16px;margin-top:38px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:10px 10px 24px}
 .visual{display:grid;place-items:center;aspect-ratio:4/3.3;padding:18px;border-radius:15px;overflow:hidden;background:#0a1524 var(--sky-wide) var(--pos, center) / var(--zoom, 280%) auto no-repeat}
@@ -275,7 +277,7 @@ dialog.q::backdrop{background:rgba(0,0,0,.72)}
   <section class="hero" id="hero">
     <div class="wrap hero-inner">
       <h1>Get Paid for Your Professional Judgment</h1>
-      <p class="lede">Winston pays nurses, physicians, attorneys, engineers, accountants and other credentialed professionals $50 to $500 per mission to check work in their own field, on their own time.</p>
+      <p class="lede">Licensed professionals earn $50 to $500 per mission reviewing work in their field, on their own time.</p>
       <div class="hero-actions">
         <button type="button" class="btn btn-light" data-open-qualifier>Join the waitlist</button>
         <a class="btn btn-glass" href="#how">How it works</a>
@@ -302,21 +304,23 @@ dialog.q::backdrop{background:rgba(0,0,0,.72)}
 
   <section class="section" id="who">
     <div class="wrap">
+      <div class="who-panel">
       <div class="head">
         <h2>Who this is for</h2>
-        <p class="sub">Working professionals with a license or a degree in their field, usually with five or more years of experience. If people already pay for your judgment at work, there's likely a place for you here.</p>
+        <p class="sub">Working professionals with a license or degree. If people already pay for your judgment, you're likely a fit.</p>
       </div>
       <ul class="chips" aria-label="Professions we work with">
         <li>Nurses</li><li>Physicians</li><li>Pharmacists</li><li>Attorneys</li><li>Engineers</li><li>Accountants</li><li>Consultants</li><li>Financial advisors</li><li>Architects</li><li>Dentists</li><li>Therapists</li><li>And many more</li>
       </ul>
-      <p class="note">Don't see your field? You can still join. Tell us what you do when you sign up.</p>
+      <p class="note">Don't see your field? You can still join.</p>
+      </div>
     </div>
   </section>
 
   <section class="section" id="work" style="padding-top:0">
     <div class="wrap">
       <div class="head">
-        <h2>What the work looks like</h2>
+        <h2>What the missions look like</h2>
         <p class="sub">Each mission is one focused task in your field, with clear instructions. You'll see the pay and how long it takes before you say yes.</p>
       </div>
       <div class="cards">
