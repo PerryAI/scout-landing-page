@@ -103,9 +103,15 @@ h1 .l{display:block}
 .rows div{display:flex;justify-content:space-between;gap:12px;padding:9px 12px;font-size:13.5px;border-bottom:1px solid var(--line)}
 .rows div:last-child{border-bottom:0}
 .rows span:first-child{color:var(--muted)}
+.rows span:first-child{flex:none}
+.rows span:last-child{text-align:right}
 .rows .flag{background:rgba(255,140,120,.09)}
 .rows .flag span:first-child{color:var(--text)}
 .ask{margin-top:14px;font-size:14px;font-weight:500}
+.choices{display:grid;gap:8px;margin-top:10px}
+.choices li{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:42px;padding:9px 14px;border-radius:12px;border:1px solid var(--line-2);font-size:14px;line-height:1.35;color:var(--muted)}
+.choices .on{background:var(--light);border-color:var(--light);color:#050505;font-weight:500}
+.choices .i{flex:none;width:14px;height:14px}
 .opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
 .opts span{display:flex;align-items:center;justify-content:center;gap:6px;min-height:40px;border-radius:999px;border:1px solid var(--line-2);font-size:14px;color:var(--muted)}
 .opts .on{background:var(--light);border-color:var(--light);color:#050505;font-weight:500}
@@ -299,15 +305,20 @@ dialog.q::backdrop{background:rgba(0,0,0,.72)}
       <div class="hero-clouds" aria-hidden="true"></div>
       <article class="panel hero-card" aria-label="Example mission">
         <div class="panel-top"><span>Example mission</span><span>10 min · <b>$50</b></span></div>
-        <h3 class="panel-title">Check a pediatric dose calculation</h3>
-        <p class="panel-meta">Nursing · Review</p>
+        <h3 class="panel-title">What would you do first?</h3>
+        <p class="panel-meta">Nursing · Clinical judgment</p>
         <div class="rows">
-          <div><span>Patient weight</span><span>18 kg</span></div>
-          <div><span>Order</span><span>Acetaminophen 15 mg/kg</span></div>
-          <div class="flag"><span>Dose, as calculated</span><span>300 mg</span></div>
+          <div><span>Patient</span><span>Post-op day 1, morphine pump</span></div>
+          <div class="flag"><span>Breathing</span><span>8 breaths a minute</span></div>
+          <div class="flag"><span>Oxygen</span><span>88% on room air</span></div>
+          <div><span>Alertness</span><span>Wakes only to a loud voice</span></div>
         </div>
-        <p class="ask">Is the calculated dose correct?</p>
-        <div class="opts"><span>Correct</span><span class="on"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Incorrect</span></div>
+        <p class="ask">Choose your response</p>
+        <ul class="choices">
+          <li>Recheck vitals in 15 minutes</li>
+          <li class="on">Stop the pump, rouse the patient, call for help<svg class="i" aria-hidden="true"><use href="#i-check"/></svg></li>
+          <li>Coach deep breathing and reassess</li>
+        </ul>
       </article>
     </div>
   </section>
