@@ -167,18 +167,15 @@ h2{font:400 clamp(38px,9.6vw,58px)/1.02 var(--serif);letter-spacing:-.03em;text-
   .step p{grid-column:1}
 }
 
-/* What you can count on */
-.promises{max-width:760px;margin-top:34px;padding:4px 20px;border-radius:22px;background:var(--card);border:1px solid var(--line)}
-.promises li{display:flex;align-items:flex-start;gap:14px;padding:18px 0;border-bottom:1px solid var(--line);font-size:16px;line-height:1.5}
-.promises li:last-child{border-bottom:0}
-.ok{width:26px;height:26px;margin-top:-1px;border-radius:999px;border:1px solid var(--line-2);background:rgba(255,255,255,.06);display:grid;place-items:center;flex:none}
-.ok .i{width:14px;height:14px}
-
 /* Questions */
 .faq{display:grid;gap:10px;margin-top:34px}
-.qa{padding:18px 20px;border-radius:18px;background:var(--card);border:1px solid var(--line)}
-.qa h3{font:500 16.5px/1.4 var(--sans);letter-spacing:-.01em}
-.qa p{margin-top:6px;font-size:15px;color:var(--muted)}
+.qa{border-radius:18px;background:var(--card);border:1px solid var(--line)}
+.qa summary{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:44px;padding:16px 20px;cursor:pointer;list-style:none;font:500 16.5px/1.4 var(--sans);letter-spacing:-.01em;border-radius:18px}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary:focus-visible{outline:2px solid var(--text);outline-offset:2px}
+.qa .chev{flex:none;width:18px;height:18px;color:var(--muted)}
+.qa[open] .chev{transform:rotate(180deg)}
+.qa p{padding:0 20px 18px;margin-top:-4px;font-size:15px;color:var(--muted)}
 @media (min-width:900px){
   .faq-wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:start}
   .faq{margin-top:0}
@@ -276,14 +273,14 @@ dialog.q::backdrop{background:rgba(0,0,0,.72)}
       <div class="hero-clouds" aria-hidden="true"></div>
       <article class="panel hero-card" aria-label="Example mission">
         <div class="panel-top"><span>Example mission</span><span>10 min · <b>$50</b></span></div>
-        <h3 class="panel-title">Check a structural load calculation</h3>
-        <p class="panel-meta">Engineering · Review</p>
+        <h3 class="panel-title">Check a pediatric dose calculation</h3>
+        <p class="panel-meta">Nursing · Review</p>
         <div class="rows">
-          <div><span>Span</span><span>6.0 m</span></div>
-          <div><span>Live load</span><span>3.0 kN/m</span></div>
-          <div class="flag"><span>Max moment, as stated</span><span>13.5 kN·m</span></div>
+          <div><span>Patient weight</span><span>18 kg</span></div>
+          <div><span>Order</span><span>Acetaminophen 15 mg/kg</span></div>
+          <div class="flag"><span>Dose, as calculated</span><span>300 mg</span></div>
         </div>
-        <p class="ask">Is the stated answer correct?</p>
+        <p class="ask">Is the calculated dose correct?</p>
         <div class="opts"><span>Correct</span><span class="on"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Incorrect</span></div>
       </article>
     </div>
@@ -380,18 +377,6 @@ dialog.q::backdrop{background:rgba(0,0,0,.72)}
     </div>
   </section>
 
-  <section class="section" id="promises" style="padding-top:0">
-    <div class="wrap">
-      <h2>What you can count on</h2>
-      <ul class="promises">
-        <li><span class="ok"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span><span>You'll always see the pay and the time before you accept a mission.</span></li>
-        <li><span class="ok"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span><span>If you follow the instructions, you get paid, even when your honest answer isn't the one anyone expected.</span></li>
-        <li><span class="ok"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span><span>We never share your name or email, and your answers are anonymized.</span></li>
-        <li><span class="ok"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span><span>There's no schedule and no minimum. Skip any mission, or leave whenever you like.</span></li>
-      </ul>
-    </div>
-  </section>
-
   <section class="section" id="faq" style="padding-top:0">
     <div class="wrap faq-wrap">
       <div>
@@ -399,14 +384,14 @@ dialog.q::backdrop{background:rgba(0,0,0,.72)}
         <p class="sub">Short answers to what most people want to know first.</p>
       </div>
       <div class="faq">
-        <div class="qa"><h3>How does the waitlist work?</h3><p>You answer a few questions so we know your field and experience. When a spot opens in your field, we email you to verify your background and get you started. Joining is free and there's nothing to upload.</p></div>
-        <div class="qa"><h3>How much can I earn?</h3><p>Each mission pays between $50 and $500, depending on the work and the time it takes. What you make overall depends on how many missions you take on.</p></div>
-        <div class="qa"><h3>How much time does it take?</h3><p>Most sessions take 10 to 45 minutes. Some missions run over several days with a session each day. You'll see the time and the number of days before you accept.</p></div>
-        <div class="qa"><h3>What do I need to join?</h3><p>A license, a degree, or experience in your field that we can verify. Any profession can apply.</p></div>
-        <div class="qa"><h3>How do I get paid?</h3><p>Through PayPal, within 10 business days of finishing a mission.</p></div>
-        <div class="qa"><h3>Is my information private?</h3><p>Yes. We never share your name or email, and your answers are anonymized.</p></div>
-        <div class="qa"><h3>Will I see real patient records?</h3><p>No. Clinical missions use made-up or simulated cases only.</p></div>
-        <div class="qa"><h3>Is this a job?</h3><p>No. There's no schedule and no commitment. You choose the missions you want.</p></div>
+        <details class="qa"><summary>How does the waitlist work?<svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6.2 8 10.2l4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p>You answer a few questions so we know your field and experience. When a spot opens in your field, we email you to verify your background and get you started. Joining is free and there's nothing to upload.</p></details>
+        <details class="qa"><summary>How much can I earn?<svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6.2 8 10.2l4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p>Each mission pays between $50 and $500, depending on the work and the time it takes. What you make overall depends on how many missions you take on.</p></details>
+        <details class="qa"><summary>How much time does it take?<svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6.2 8 10.2l4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p>Most sessions take 10 to 45 minutes. Some missions run over several days with a session each day. You'll see the time and the number of days before you accept.</p></details>
+        <details class="qa"><summary>What do I need to join?<svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6.2 8 10.2l4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p>A license, a degree, or experience in your field that we can verify. Any profession can apply.</p></details>
+        <details class="qa"><summary>How do I get paid?<svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6.2 8 10.2l4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p>Through PayPal, within 10 business days of finishing a mission.</p></details>
+        <details class="qa"><summary>Is my information private?<svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6.2 8 10.2l4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p>Yes. We never share your name or email, and your answers are anonymized.</p></details>
+        <details class="qa"><summary>Will I see real patient records?<svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6.2 8 10.2l4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p>No. Clinical missions use made-up or simulated cases only.</p></details>
+        <details class="qa"><summary>Is this a job?<svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6.2 8 10.2l4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p>No. There's no schedule and no commitment. You choose the missions you want.</p></details>
       </div>
     </div>
   </section>
