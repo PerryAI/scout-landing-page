@@ -72,11 +72,20 @@ a,button,label,input{touch-action:manipulation;-webkit-tap-highlight-color:trans
 .hero-stage{position:relative;margin-top:104px}
 .hero-clouds{position:absolute;z-index:0;left:50%;top:0;width:900px;aspect-ratio:1600/760;transform:translate(-50%,-59.2%);background:var(--hero-clouds) center / 100% 100% no-repeat;pointer-events:none}
 .hero-inner{position:relative;z-index:1;max-width:820px;text-align:center}
-h1{font:400 clamp(50px,14.4vw,86px)/1 var(--serif);letter-spacing:-.03em;color:#f4f4f4;text-wrap:balance;text-shadow:0 2px 30px rgba(8,18,32,.55)}
+h1{font:400 clamp(40px,13vw,86px)/1.02 var(--serif);letter-spacing:-.03em;color:#f4f4f4;text-wrap:balance;text-shadow:0 2px 30px rgba(8,18,32,.55)}
 .lede{max-width:36ch;margin:26px auto 0;font-size:clamp(16px,4.3vw,18px);line-height:1.55;color:rgba(240,240,240,.84);text-wrap:pretty;text-shadow:0 1px 18px rgba(8,18,32,.7)}
 .hero-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:22px}
 .hero-note{margin-top:14px;font-size:14px;color:rgba(240,240,240,.62)}
 .hero-card{position:relative;z-index:1;max-width:440px;margin:0 auto}
+h1 .l{display:block}
+/* Phones: a left-aligned block on the same edge as the logo and the mission card, title on two wide lines */
+@media (max-width:699px){
+  .hero{padding-top:132px}
+  .hero-inner{text-align:left}
+  .lede{max-width:34ch;margin:20px 0 0;font-size:17px}
+  .hero-actions{display:grid;grid-template-columns:1fr 1fr;margin-top:28px}
+  .hero-actions .btn{width:100%;padding-left:10px;padding-right:10px}
+}
 @media (min-width:700px){.hero-stage{margin-top:150px}.hero-clouds{width:max(1600px,112vw)}}
 @media (min-width:900px){
   .hero{padding-top:176px}
@@ -277,7 +286,7 @@ dialog.q::backdrop{background:rgba(0,0,0,.72)}
 
   <section class="hero" id="hero">
     <div class="wrap hero-inner">
-      <h1>Professionals get paid for your judgment</h1>
+      <h1><span class="l">Professionals get paid</span> <span class="l">for your judgment</span></h1>
       <p class="lede">Licensed professionals earn $50 to $500 per mission reviewing work in their field, on their own time.</p>
       <div class="hero-actions">
         <button type="button" class="btn btn-light" data-open-qualifier>Join the waitlist</button>
