@@ -160,7 +160,9 @@ h2{font:400 clamp(38px,9.6vw,58px)/1.02 var(--serif);letter-spacing:-.03em;text-
 .figures li{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 18px}
 .figures li:not(:last-child){border-bottom:1px solid var(--line)}
 /* Figures use the same sans as the mission panels, heavy and tight; labels are lighter so the two contrast */
-.fig{font:600 clamp(28px,8.6vw,40px)/1 var(--sans);letter-spacing:-.045em;white-space:nowrap;font-variant-numeric:tabular-nums}
+.fig{font:500 clamp(25px,7.4vw,34px)/1 var(--sans);letter-spacing:-.03em;white-space:nowrap;font-variant-numeric:tabular-nums}
+/* Room and a softer tone around range dashes so they don't run into the digits */
+.fig .dash{margin:0 .14em;color:rgba(240,240,240,.55);font-weight:400}
 .figures p{max-width:13ch;font-size:15px;font-weight:400;line-height:1.35;color:rgba(240,240,240,.62);text-align:right;text-wrap:balance}
 @media (max-width:359px){.figures li{flex-direction:column;align-items:flex-start;gap:8px}.figures p{max-width:none;text-align:left}}
 @media (min-width:700px){
@@ -170,7 +172,7 @@ h2{font:400 clamp(38px,9.6vw,58px)/1.02 var(--serif);letter-spacing:-.03em;text-
   .figures li:nth-child(n){border-bottom:0}
   .figures li:nth-child(odd){border-right:1px solid var(--line)}
   .figures li:nth-child(-n+2){border-bottom:1px solid var(--line)}
-  .fig{font-size:clamp(44px,6.4vw,56px)}
+  .fig{font-size:clamp(38px,5.4vw,46px)}
   .figures p{max-width:none;font-size:16px;text-align:left}
 }
 
@@ -376,8 +378,8 @@ dialog.q::backdrop{background:rgba(0,0,0,.72)}
       <h2>The practical details</h2>
       <div class="sky-card" style="--pos:20% 40%">
         <ul class="figures">
-          <li><span class="fig">$50–$500</span><p>Paid per mission</p></li>
-          <li><span class="fig">10–45 min</span><p>Per session</p></li>
+          <li><span class="fig">$50<span class="dash">–</span>$500</span><p>Paid per mission</p></li>
+          <li><span class="fig">10<span class="dash">–</span>45 min</span><p>Per session</p></li>
           <li><span class="fig">2 days</span><p>Typical time to get verified</p></li>
           <li><span class="fig">10 days</span><p>Longest wait to get paid</p></li>
         </ul>
