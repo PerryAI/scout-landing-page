@@ -277,8 +277,19 @@ dialog.q::backdrop{background:rgba(0,0,0,.72)}
 .next span.sub2{display:block;font-size:14.5px;color:var(--muted)}
 .r-done{margin-top:26px}
 </style>
+<!-- Meta Pixel (dataset "Winston Website"). Loads async; the Lead event fires in trackLead() only after a sign-up is saved -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1432211359002093');
+fbq('track', 'PageView');
+</script>
 </head>
 <body>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1432211359002093&amp;ev=PageView&amp;noscript=1"></noscript>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <symbol id="i-check" viewBox="0 0 20 20"><path d="m4.5 10.2 3.6 3.6L15.5 6.2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
