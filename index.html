@@ -230,7 +230,10 @@ h2{font:400 clamp(38px,9.6vw,58px)/1.02 var(--serif);letter-spacing:-.03em;text-
 
 /* Footer */
 .site-footer{padding:8px 0 calc(48px + env(safe-area-inset-bottom));font-size:14px;color:var(--faint)}
-.foot{display:flex;justify-content:center}
+.foot{display:flex;flex-direction:column;align-items:center;gap:6px}
+.foot-link{display:inline-flex;align-items:center;min-height:44px;padding:0 8px;font-size:14px;color:var(--muted);text-decoration:none}
+.foot-link:hover{color:var(--text)}
+.q-fine a{color:inherit;text-underline-offset:3px}
 .foot .brand{color:var(--text)}
 
 /* Sign-up sheet */
@@ -457,6 +460,7 @@ fbq('track', 'PageView');
 <footer class="site-footer" id="footer">
   <div class="wrap foot">
     <span class="brand"><svg aria-hidden="true"><use href="#logo"/></svg><span>Winston</span></span>
+    <a class="foot-link" href="/privacy">Privacy policy</a>
   </div>
 </footer>
 
@@ -523,7 +527,7 @@ fbq('track', 'PageView');
           <input class="q-input" id="q-email" type="email" name="email" autocomplete="email" inputmode="email" enterkeyhint="go" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="you@email.com" required>
           <p class="q-error" id="q-error" role="alert"></p>
           <button type="submit" class="btn btn-light btn-block"><span id="q-submit-label">Join the waitlist</span></button>
-          <p class="q-fine">We'll only use your email to contact you about Winston.</p>
+          <p class="q-fine">We'll only use your email to contact you about Winston. <a href="/privacy">Privacy policy</a></p>
         </form>
       </section>
 
