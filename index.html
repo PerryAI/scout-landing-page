@@ -519,15 +519,17 @@ fbq('track', 'PageView');
       </section>
 
       <section class="q-step" data-step="3" hidden>
-        <h2 class="q-title" tabindex="-1">Where should we email you?</h2>
+        <h2 class="q-title" tabindex="-1">How can we reach you?</h2>
         <p class="q-help">We'll add you to the waitlist and let you know when a spot opens in your field.</p>
         <form id="q-form" novalidate>
           <div class="hp" aria-hidden="true"><label for="q-ref">Reference code, leave blank</label><input id="q-ref" name="reference_code" type="text" tabindex="-1" autocomplete="off"></div>
           <label class="q-label" for="q-email">Email address</label>
-          <input class="q-input" id="q-email" type="email" name="email" autocomplete="email" inputmode="email" enterkeyhint="go" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="you@email.com" required>
+          <input class="q-input" id="q-email" type="email" name="email" autocomplete="email" inputmode="email" enterkeyhint="next" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="you@email.com" required>
+          <label class="q-label" for="q-phone">Phone number</label>
+          <input class="q-input" id="q-phone" type="tel" name="phone" autocomplete="tel" inputmode="tel" enterkeyhint="go" placeholder="(555) 123-4567" required>
           <p class="q-error" id="q-error" role="alert"></p>
           <button type="submit" class="btn btn-light btn-block"><span id="q-submit-label">Join the waitlist</span></button>
-          <p class="q-fine">We'll only use your email to contact you about Winston. <a href="/privacy">Privacy policy</a></p>
+          <p class="q-fine">We'll only contact you about your spot on the waitlist. You won't get any marketing emails or texts from us. <a href="/privacy">Privacy policy</a></p>
         </form>
       </section>
 
@@ -738,6 +740,7 @@ fbq('track', 'PageView');
       verification: state.method,
       years: state.years,
       email: state.email,
+      phone: state.phone,
       reference_code: $('#q-ref').value
     };
     for (var k in attribution) payload[k] = attribution[k];
@@ -766,11 +769,20 @@ fbq('track', 'PageView');
     track('winston_lead', { field: state.field, likely_fit: likelyFit() });
   }
 
+  function normalizePhone(value) {
+    var digits = value.replace(/\D/g, '');
+    if (/^\s*\+/.test(value)) return digits.length >= 8 && digits.length <= 15 ? '+' + digits : null;
+    if (digits.length === 10) return '+1' + digits;
+    if (digits.length === 11 && digits.charAt(0) === '1') return '+' + digits;
+    return null;
+  }
+
   var sending = false;
   $('#q-form').addEventListener('submit', function (e) {
     e.preventDefault();
     if (sending) return;
     var input = $('#q-email');
+    var phoneInput = $('#q-phone');
     var error = $('#q-error');
     var button = $('#q-form button[type="submit"]');
     var label = $('#q-submit-label');
@@ -781,9 +793,18 @@ fbq('track', 'PageView');
       input.focus();
       return;
     }
-    error.textContent = '';
     input.removeAttribute('aria-invalid');
+    var phone = normalizePhone(phoneInput.value);
+    if (!phone) {
+      error.textContent = 'Enter a valid phone number, like (555) 123-4567.';
+      phoneInput.setAttribute('aria-invalid', 'true');
+      phoneInput.focus();
+      return;
+    }
+    error.textContent = '';
+    phoneInput.removeAttribute('aria-invalid');
     state.email = value;
+    state.phone = phone;
 
     sending = true;
     button.disabled = true;
@@ -798,6 +819,10 @@ fbq('track', 'PageView');
         error.textContent = 'Enter a valid email so we can reach you.';
         input.setAttribute('aria-invalid', 'true');
         input.focus();
+      } else if (result.data && result.data.error === 'invalid_phone') {
+        error.textContent = 'Enter a valid phone number, like (555) 123-4567.';
+        phoneInput.setAttribute('aria-invalid', 'true');
+        phoneInput.focus();
       } else {
         error.textContent = 'We could not save that just now. Please try again in a moment.';
       }

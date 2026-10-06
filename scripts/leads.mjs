@@ -10,7 +10,7 @@ if (!url) {
 
 const rows = await neon(url).query('SELECT * FROM signups ORDER BY created_at DESC');
 const columns = [
-  'id', 'created_at', 'status', 'email', 'field', 'field_other', 'verification', 'years', 'likely_fit',
+  'id', 'created_at', 'status', 'email', 'phone', 'field', 'field_other', 'verification', 'years', 'likely_fit',
   'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term',
   'fbclid', 'gclid', 'host', 'submit_count', 'updated_at',
 ];

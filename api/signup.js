@@ -9,6 +9,17 @@ const ATTRIBUTION = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const FIELD_OTHER_MAX = 100;
 
+// Accepts a 10-digit US/Canada number (with or without a leading 1) or an international number written with +.
+// Returns it as +<digits>, or null if it doesn't look like a phone number.
+const normalizePhone = (value) => {
+  if (typeof value !== 'string') return null;
+  const digits = value.replace(/\D/g, '');
+  if (/^\s*\+/.test(value)) return digits.length >= 8 && digits.length <= 15 ? `+${digits}` : null;
+  if (digits.length === 10) return `+1${digits}`;
+  if (digits.length === 11 && digits.startsWith('1')) return `+${digits}`;
+  return null;
+};
+
 let sql;
 const db = () => (sql ??= neon(process.env.DATABASE_URL));
 
@@ -48,6 +59,8 @@ export default async function handler(req, res) {
 
   const email = clean(body.email, 254)?.toLowerCase();
   if (!email || !EMAIL.test(email)) return reply(res, 400, { ok: false, error: 'invalid_email' });
+  const phone = normalizePhone(body.phone);
+  if (!phone) return reply(res, 400, { ok: false, error: 'invalid_phone' });
   if (!FIELDS.includes(body.field) || !VERIFICATIONS.includes(body.verification) || !YEARS.includes(body.years)) {
     return reply(res, 400, { ok: false, error: 'invalid_answers' });
   }
@@ -68,14 +81,15 @@ export default async function handler(req, res) {
   try {
     const rows = await db()`
       INSERT INTO signups
-        (email, field, field_other, verification, years, likely_fit,
+        (email, phone, field, field_other, verification, years, likely_fit,
          utm_source, utm_medium, utm_campaign, utm_content, utm_term, fbclid, gclid, host)
       VALUES
-        (${email}, ${body.field}, ${fieldOther}, ${body.verification}, ${body.years}, ${likelyFit},
+        (${email}, ${phone}, ${body.field}, ${fieldOther}, ${body.verification}, ${body.years}, ${likelyFit},
          ${attribution.utm_source}, ${attribution.utm_medium}, ${attribution.utm_campaign},
          ${attribution.utm_content}, ${attribution.utm_term}, ${attribution.fbclid}, ${attribution.gclid},
          ${clean(req.headers.host, 200)})
       ON CONFLICT (email) DO UPDATE SET
+        phone        = EXCLUDED.phone,
         field        = EXCLUDED.field,
         field_other  = EXCLUDED.field_other,
         verification = EXCLUDED.verification,
