@@ -114,6 +114,9 @@ h2{font:400 clamp(38px,9.6vw,58px)/1.02 var(--serif);letter-spacing:-.03em;text-
   .section{padding:120px 0}
   .head{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:end}
   .head .sub{margin-top:0;justify-self:end;max-width:42ch}
+  /* What it can pay: the heading is short, so the subline gets the rest of the row and fits on two lines */
+  .head-wide{grid-template-columns:auto minmax(0,1fr)}
+  .head-wide .sub{max-width:50ch;text-wrap:wrap}
 }
 
 /* What counts as data: the gradient panel the home page uses for "Who this is for" */
@@ -366,7 +369,7 @@ fbq('track', 'PageView');
 
   <section class="section" id="pay" style="padding-top:0">
     <div class="wrap">
-      <div class="head">
+      <div class="head head-wide">
         <h2>What it can pay</h2>
         <p class="sub">Tiers for operating companies. Your offer depends on how much data you have, its quality, and how unique it is.</p>
       </div>
