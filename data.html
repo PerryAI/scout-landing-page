@@ -69,8 +69,7 @@ a,button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 .hero-clouds{position:absolute;z-index:0;left:50%;top:0;width:900px;aspect-ratio:1600/760;transform:translate(-50%,-59.2%);background:var(--hero-clouds) center / 100% 100% no-repeat;pointer-events:none}
 .hero-inner{position:relative;z-index:1;max-width:820px;text-align:center}
 /* Who the visitor is applying to, said before anything else, so landing on micro1's site is no surprise */
-.pill{display:inline-flex;align-items:center;gap:9px;min-height:36px;margin-bottom:24px;padding:0 15px 0 13px;border-radius:999px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);font:500 14px/1.2 var(--sans);letter-spacing:-.005em;color:rgba(240,240,240,.92)}
-.pill .dot-l{width:7px;height:7px;border-radius:999px;background:var(--light);flex:none}
+.pill{display:inline-flex;align-items:center;min-height:36px;margin-bottom:24px;padding:0 16px;border-radius:999px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);font:500 14px/1.2 var(--sans);letter-spacing:-.005em;color:rgba(240,240,240,.92)}
 h1{font:400 clamp(34px,calc((100vw - 46px) / 6.45),86px)/1.02 var(--serif);letter-spacing:-.03em;color:#f4f4f4;text-shadow:0 2px 30px rgba(8,18,32,.55)}
 h1 .l{display:block}
 .lede{max-width:38ch;margin:26px auto 0;font-size:clamp(16px,4.3vw,18px);line-height:1.55;color:rgba(240,240,240,.84);text-wrap:pretty;text-shadow:0 1px 18px rgba(8,18,32,.7)}
@@ -170,6 +169,13 @@ h2{font:400 clamp(38px,9.6vw,58px)/1.02 var(--serif);letter-spacing:-.03em;text-
 /* Your data stays yours: its own neutral panel, an open list with a serif lead on each line */
 .yours-panel{padding:40px 22px 18px;border-radius:28px;border:1px solid var(--line-2);background:radial-gradient(120% 60% at 0% 0%, rgba(255,255,255,.07), rgba(255,255,255,0) 70%), linear-gradient(180deg, #131417, #08090b)}
 @media (min-width:900px){.yours-panel{padding:64px 56px 40px}}
+.yours-visual{display:none}
+.scenario{margin-top:14px;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid var(--line);font-size:14px;line-height:1.75;color:rgba(240,240,240,.86)}
+.redact{display:inline-block;height:.95em;vertical-align:-2px;border-radius:3px;background:rgba(240,240,240,.82)}
+.redact.w5{width:5ch}.redact.w6{width:6ch}.redact.w8{width:8ch}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.opts span{display:flex;align-items:center;justify-content:center;min-height:40px;border-radius:999px;border:1px solid var(--line-2);font-size:14px;color:var(--muted)}
+.opts .on{background:var(--light);border-color:var(--light);color:#050505;font-weight:500}
 .assure{margin-top:30px;border-top:1px solid var(--line-2)}
 .assure li{padding:22px 0;border-bottom:1px solid var(--line-2)}
 .assure li:last-child{border-bottom:0}
@@ -178,6 +184,8 @@ h2{font:400 clamp(38px,9.6vw,58px)/1.02 var(--serif);letter-spacing:-.03em;text-
 @media (min-width:900px){
   .split{display:grid;grid-template-columns:5fr 7fr;gap:64px;align-items:start}
   .split .sub{max-width:34ch}
+  .yours-visual{display:grid;aspect-ratio:auto;margin-top:36px;padding:36px 24px}
+  .yours-visual .panel{max-width:340px}
   .assure{margin-top:0}
   .assure li{padding:24px 0}
   .assure li:first-child{padding-top:0}
@@ -268,7 +276,7 @@ fbq('track', 'PageView');
 
   <section class="hero" id="hero">
     <div class="wrap hero-inner">
-      <p class="pill"><span class="dot-l" aria-hidden="true"></span>Winston partners with micro1.</p>
+      <p class="pill">In partnership with micro1.</p>
       <h1><span class="l">Companies get paid</span> <span class="l">for your data</span></h1>
       <p class="lede">The data your business generates every day is exactly what frontier labs need. micro1 licenses it, packages it, and pays you for it.</p>
       <div class="hero-actions">
@@ -330,7 +338,10 @@ fbq('track', 'PageView');
             </div>
           </div>
           <h3>Operating companies</h3>
-          <p>Established teams with strong operations and years of documented work. US companies come first, then other Western markets.</p>
+          <p>Established teams with strong operations and years of documented work, based in:</p>
+          <ul class="chips" aria-label="Eligible markets">
+            <li>US</li><li>Western markets</li>
+          </ul>
         </article>
         <article class="card">
           <div class="visual" style="--pos:96% 42%" aria-hidden="true">
@@ -357,7 +368,7 @@ fbq('track', 'PageView');
     <div class="wrap">
       <div class="head">
         <h2>What it can pay</h2>
-        <p class="sub">micro1's published tiers for operating companies. Your offer depends on how much data you have, its quality, and how unique it is.</p>
+        <p class="sub">Tiers for operating companies. Your offer depends on how much data you have, its quality, and how unique it is.</p>
       </div>
       <div class="sky-card" style="--pos:20% 40%">
         <ul class="figures">
@@ -375,6 +386,14 @@ fbq('track', 'PageView');
       <div>
         <h2>Your data stays yours</h2>
         <p class="sub">These are micro1's commitments, from its program pages. Your agreement with micro1 sets the final terms.</p>
+        <div class="visual yours-visual" style="--pos:70% 35%" aria-hidden="true">
+          <div class="panel">
+            <div class="panel-top"><span>Sample before use</span><span>Support ticket</span></div>
+            <p class="scenario">Customer <span class="redact w8"></span> called about order <span class="redact w5"></span>. <span class="redact w6"></span> issued a refund under SOP 4.2 and flagged it for QA review.</p>
+            <div class="score"><span>Names and order numbers</span><b>Redacted</b></div>
+            <div class="opts"><span class="on">Approve</span><span>Request changes</span></div>
+          </div>
+        </div>
       </div>
       <ul class="assure">
         <li><h3>You keep ownership</h3><p>micro1 licenses your data. The underlying data stays your company's.</p></li>
@@ -404,11 +423,10 @@ fbq('track', 'PageView');
     <div class="wrap">
       <div class="head">
         <h2>Questions people ask</h2>
-        <p class="sub">Short answers to what most companies want to know first.</p>
       </div>
       <div class="faq">
         <div class="faq-col">
-          <details class="qa" open><summary>Who runs this program?<svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6.2 8 10.2l4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p>micro1, an AI data company that builds training environments and evaluations for AI labs. Winston introduces companies to its data partnership program.</p></details>
+          <details class="qa"><summary>Who runs this program?<svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6.2 8 10.2l4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p>micro1, an AI data company that builds training environments and evaluations for AI labs. Winston introduces companies to its data partnership program.</p></details>
           <details class="qa"><summary>Why would AI labs pay for our data?<svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6.2 8 10.2l4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p>Public text is easy to find. Records of how real companies run are not. AI systems need them to learn real work: how teams follow processes, make decisions, and hand work off.</p></details>
           <details class="qa"><summary>Do we keep ownership of our data?<svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6.2 8 10.2l4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p>Yes. micro1 licenses your data, and your company keeps ownership of it.</p></details>
           <details class="qa"><summary>How is our data anonymized?<svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6.2 8 10.2l4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p>Personal and sensitive details are scrubbed before any use. Some datasets are also rewritten, keeping the workflow but not the link to real records. You agree on what gets redacted, and you review samples first.</p></details>
