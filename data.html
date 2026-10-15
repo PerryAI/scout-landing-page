@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Winston | Companies get paid for your data</title>
+<meta name="description" content="Your company's SOPs, knowledge bases, CRM history and team chats are what frontier AI labs need. Apply to micro1's data partnership program through Winston and see if you qualify.">
+<meta property="og:title" content="Companies get paid for your data">
+<meta property="og:description" content="The data your business generates every day is exactly what frontier labs need. micro1 licenses it, packages it, and pays you for it. Apply through Winston.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='1.75' y='1.75' width='28.5' height='28.5' rx='8' fill='%23f0f0f0'/%3E%3Crect x='9.5' y='8.25' width='13' height='13' rx='3.5' fill='%23000'/%3E%3C/svg%3E">
+<link rel="preload" href="/fonts/inter.65850a37.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/instrument-serif.c008db4e.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/hero-clouds.e5f1f9b6.webp" as="image" type="image/webp" fetchpriority="high">
+<style>
+/* Same fonts, colors and components as the home page (index.html), so the two read as one site */
+@font-face{font-family:Inter;font-style:normal;font-weight:100 900;font-display:swap;src:url(/fonts/inter.65850a37.woff2) format("woff2")}
+@font-face{font-family:"Instrument Serif";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/instrument-serif.c008db4e.woff2) format("woff2")}
+@font-face{font-family:"Inter Fallback";src:local("Arial");size-adjust:107.3%;ascent-override:90.3%;descent-override:22.5%;line-gap-override:0%}
+@font-face{font-family:"Instrument Serif Fallback";src:local("Times New Roman");size-adjust:83.2%;ascent-override:119%;descent-override:37%;line-gap-override:0%}
+:root{
+  --bg:#000;
+  --text:#f0f0f0;
+  --muted:rgba(240,240,240,.64);
+  --faint:rgba(240,240,240,.46);
+  --card:#0e0f11;
+  --line:rgba(255,255,255,.08);
+  --line-2:rgba(255,255,255,.15);
+  --light:#ececec;
+  --serif:"Instrument Serif","Instrument Serif Fallback",Georgia,serif;
+  --sans:Inter,"Inter Fallback",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --sky-wide:url("/assets/sky-wide.4b09d0b9.webp");
+  --hero-sky:radial-gradient(60% 60% at 50% 70%, rgba(108,140,171,.22), rgba(108,140,171,0)), linear-gradient(#0a1524, #17304a 45%, #33506c 80%, #44627e);
+  --hero-clouds:url("/assets/hero-clouds.e5f1f9b6.webp");
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.55 var(--sans);letter-spacing:-.006em;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}
+h1,h2,h3,p,ul,ol{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:inherit}
+a,button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.wrap{width:min(1120px, 100% - 40px);margin-inline:auto}
+.i{width:18px;height:18px;flex:none}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 24px;border-radius:999px;border:1px solid transparent;font:500 16px/1 var(--sans);letter-spacing:-.01em;text-decoration:none;cursor:pointer;white-space:nowrap}
+.btn-light{background:var(--light);color:#050505;border-color:rgba(255,255,255,.75)}
+.btn-glass{background:rgba(255,255,255,.12);color:var(--text);border-color:rgba(255,255,255,.22);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+@media (hover:hover){
+  .btn-light:hover{background:#fff}
+  .btn-glass:hover{background:rgba(255,255,255,.18)}
+}
+
+/* Header */
+.site-header{position:absolute;top:0;left:0;right:0;z-index:3}
+.bar{height:64px;display:flex;align-items:center}
+.brand{display:inline-flex;align-items:center;gap:10px;min-height:44px;text-decoration:none;font:600 17px/1 var(--sans);letter-spacing:-.02em}
+.brand svg{width:24px;height:24px}
+@media (min-width:900px){.bar{height:76px;justify-content:center}}
+
+/* Hero */
+.hero{position:relative;isolation:isolate;overflow:hidden;padding:128px 0 0;background-color:#0a1524;background-image:var(--hero-sky)}
+.hero::after{content:"";position:absolute;z-index:0;left:0;right:0;bottom:0;height:34%;background:linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,.08) 22%, rgba(0,0,0,.3) 45%, rgba(0,0,0,.66) 68%, #000 92%);pointer-events:none}
+.hero-stage{position:relative;margin-top:104px}
+.hero-clouds{position:absolute;z-index:0;left:50%;top:0;width:900px;aspect-ratio:1600/760;transform:translate(-50%,-59.2%);background:var(--hero-clouds) center / 100% 100% no-repeat;pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:820px;text-align:center}
+/* Who the visitor is applying to, said before anything else, so landing on micro1's site is no surprise */
+.pill{display:inline-flex;align-items:center;gap:9px;min-height:36px;margin-bottom:24px;padding:0 15px 0 13px;border-radius:999px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);font:500 14px/1.2 var(--sans);letter-spacing:-.005em;color:rgba(240,240,240,.92)}
+.pill .dot-l{width:7px;height:7px;border-radius:999px;background:var(--light);flex:none}
+h1{font:400 clamp(34px,calc((100vw - 46px) / 6.25),86px)/1.02 var(--serif);letter-spacing:-.03em;color:#f4f4f4;text-shadow:0 2px 30px rgba(8,18,32,.55)}
+h1 .l{display:block}
+.lede{max-width:38ch;margin:26px auto 0;font-size:clamp(16px,4.3vw,18px);line-height:1.55;color:rgba(240,240,240,.84);text-wrap:pretty;text-shadow:0 1px 18px rgba(8,18,32,.7)}
+.hero-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:22px}
+.hero-note{max-width:40ch;margin:14px auto 0;font-size:14px;color:rgba(240,240,240,.62);text-wrap:pretty}
+.hero-card{position:relative;z-index:1;max-width:440px;margin:0 auto}
+@media (max-width:699px){
+  .hero{padding-top:118px}
+  .hero-inner{text-align:left}
+  .lede{max-width:34ch;margin:20px 0 0;font-size:17px}
+  .hero-actions{display:grid;grid-template-columns:1fr 1fr;margin-top:28px}
+  .hero-actions .btn{width:100%;padding-left:10px;padding-right:10px}
+  .hero-note{margin-left:0}
+}
+@media (min-width:700px){.hero-stage{margin-top:150px}.hero-clouds{width:max(1600px,112vw)}}
+@media (min-width:900px){
+  .hero{padding-top:168px}
+  .lede{max-width:58ch;text-wrap:balance}
+  .hero-card{max-width:520px}
+}
+
+/* Glass panels that sit on the sky */
+.panel{background:rgba(13,15,19,.8);border:1px solid rgba(255,255,255,.11);border-radius:18px;-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);padding:18px;text-align:left;box-shadow:0 30px 60px -24px rgba(0,0,0,.7)}
+.panel-top{display:flex;justify-content:space-between;gap:12px;font-size:13px;color:var(--muted)}
+.panel-top b{color:var(--text);font-weight:600}
+.panel-title{margin-top:12px;font:500 18px/1.3 var(--sans);letter-spacing:-.012em}
+.panel-meta{margin-top:3px;font-size:13.5px;color:var(--muted)}
+.pkg{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.pkg li{display:flex;align-items:center;gap:8px;min-height:40px;padding:0 10px;white-space:nowrap;border-radius:12px;border:1px solid var(--line-2);background:rgba(255,255,255,.03);font-size:14px}
+.tick{width:18px;height:18px;border-radius:6px;display:grid;place-items:center;flex:none;background:var(--light);color:#050505}
+.tick .i{width:12px;height:12px}
+@media (max-width:359px){.pkg{grid-template-columns:1fr}}
+.score{display:flex;justify-content:space-between;gap:12px;margin-top:12px;padding-top:10px;border-top:1px solid var(--line);font-size:13.5px;color:var(--muted)}
+.score + .score{margin-top:0;padding-top:8px;border-top:0}
+.score b{color:var(--text);font-weight:600}
+
+/* Sections */
+.section{padding:76px 0}
+h2{font:400 clamp(38px,9.6vw,58px)/1.02 var(--serif);letter-spacing:-.03em;text-wrap:balance}
+.sub{max-width:50ch;margin-top:16px;font-size:16.5px;color:var(--muted);text-wrap:pretty}
+@media (min-width:900px){
+  .section{padding:120px 0}
+  .head{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:end}
+  .head .sub{margin-top:0;justify-self:end;max-width:42ch}
+}
+
+/* What counts as data: the gradient panel the home page uses for "Who this is for" */
+.who-panel{padding:40px 22px 36px;border-radius:28px;border:1px solid var(--line-2);background:radial-gradient(120% 70% at 50% 0%, rgba(84,116,148,.42), rgba(84,116,148,0) 72%), linear-gradient(180deg, #101a26, #08090c)}
+@media (min-width:900px){.who-panel{padding:64px 56px 56px}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
+.chips li{padding:9px 15px;border-radius:999px;border:1px solid var(--line-2);background:rgba(255,255,255,.03);font-size:14.5px}
+.note{margin-top:22px;font-size:15px;color:var(--muted)}
+
+/* Two ways to qualify: the home page's mission cards, two across */
+.cards{display:grid;gap:16px;margin-top:38px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:10px 10px 24px}
+.visual{display:grid;place-items:center;aspect-ratio:4/3.1;padding:18px;border-radius:15px;overflow:hidden;background:#0a1524 var(--sky-wide) var(--pos, center) / var(--zoom, 280%) auto no-repeat}
+.visual .panel{width:100%;max-width:300px;padding:16px}
+.card h3{margin:22px 12px 0;font:400 30px/1.05 var(--serif);letter-spacing:-.02em;text-wrap:balance}
+.card p{margin:8px 12px 0;font-size:15.5px;color:var(--muted);text-wrap:pretty}
+.card .chips{margin:16px 12px 0;gap:6px}
+.card .chips li{padding:6px 12px;font-size:13.5px}
+.co{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.co-name{font:500 14.5px/1.35 var(--sans)}
+.status{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;background:var(--light);color:#050505;font-size:12.5px;font-weight:500;white-space:nowrap}
+.status::before{content:"";width:6px;height:6px;border-radius:999px;background:#2f9e5b}
+.status.off{background:rgba(255,255,255,.08);color:var(--muted);border:1px solid var(--line-2)}
+.status.off::before{background:rgba(240,240,240,.45)}
+.facts{margin-top:12px;border-top:1px solid var(--line)}
+.facts li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:13.5px;color:var(--muted)}
+.facts li:last-child{border-bottom:0;padding-bottom:0}
+.facts b{color:var(--text);font-weight:600;white-space:nowrap}
+@media (min-width:900px){
+  .cards{grid-template-columns:1fr 1fr;gap:20px}
+  .card p,.card h3{margin-left:16px;margin-right:16px}
+  .card .chips{margin-left:16px;margin-right:16px}
+  .visual{aspect-ratio:16/10}
+}
+
+/* What it can pay: a sky card holding a glass panel of figures */
+.sky-card{margin-top:34px;padding:40px 16px;border-radius:24px;border:1px solid var(--line);background:#0a1524 var(--sky-wide) var(--pos, center) / cover no-repeat}
+.figures{display:grid;border-radius:16px;overflow:hidden;background:rgba(10,12,16,.72);border:1px solid rgba(255,255,255,.12);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
+.figures li{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 18px}
+.figures li:not(:last-child){border-bottom:1px solid var(--line)}
+.fig{font:500 clamp(25px,7.4vw,34px)/1 var(--sans);letter-spacing:-.03em;white-space:nowrap;font-variant-numeric:tabular-nums}
+.figures p{max-width:16ch;font-size:15px;line-height:1.35;color:rgba(240,240,240,.62);text-align:right;text-wrap:balance}
+@media (max-width:359px){.figures li{flex-direction:column;align-items:flex-start;gap:8px}.figures p{max-width:none;text-align:left}}
+@media (min-width:700px){
+  .sky-card{padding:56px 48px}
+  .figures{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .figures li{flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:12px;padding:30px 26px}
+  .figures li:not(:last-child){border-bottom:0;border-right:1px solid var(--line)}
+  .fig{font-size:clamp(36px,4.6vw,46px)}
+  .figures p{max-width:none;font-size:16px;text-align:left}
+}
+
+/* Your data stays yours: its own neutral panel, an open list with a serif lead on each line */
+.yours-panel{padding:40px 22px 18px;border-radius:28px;border:1px solid var(--line-2);background:radial-gradient(120% 60% at 0% 0%, rgba(255,255,255,.07), rgba(255,255,255,0) 70%), linear-gradient(180deg, #131417, #08090b)}
+@media (min-width:900px){.yours-panel{padding:64px 56px 40px}}
+.assure{margin-top:30px;border-top:1px solid var(--line-2)}
+.assure li{padding:22px 0;border-bottom:1px solid var(--line-2)}
+.assure li:last-child{border-bottom:0}
+.assure h3{font:400 27px/1.1 var(--serif);letter-spacing:-.015em}
+.assure p{margin-top:6px;font-size:16px;color:var(--muted);text-wrap:pretty}
+@media (min-width:900px){
+  .split{display:grid;grid-template-columns:5fr 7fr;gap:64px;align-items:start}
+  .split .sub{max-width:34ch}
+  .assure{margin-top:0}
+  .assure li{padding:24px 0}
+  .assure li:first-child{padding-top:0}
+  .assure{border-top:0}
+}
+
+/* How it works: a numbered step-by-step timeline */
+.timeline{margin-top:34px;padding:6px 20px;border-radius:24px;background:var(--card);border:1px solid var(--line)}
+.timeline li{position:relative;display:grid;grid-template-columns:32px 1fr;gap:16px;align-items:start;padding:20px 0}
+.timeline li:not(:last-child)::before{content:"";position:absolute;left:16px;top:58px;bottom:-14px;width:1px;background:var(--line-2)}
+.dot{width:32px;height:32px;border-radius:999px;border:1px solid var(--line-2);background:#16181b;display:grid;place-items:center;font:600 14px/1 var(--sans)}
+.timeline p{padding-top:4px;font-size:17px;line-height:1.45;color:var(--muted);text-wrap:pretty}
+.timeline b{font-weight:500;color:var(--text)}
+.after{margin-top:28px}
+@media (min-width:900px){
+  .timeline{display:grid;grid-template-columns:repeat(4,1fr);padding:36px 32px}
+  .timeline li{grid-template-columns:1fr;gap:20px;padding:0 28px 0 0}
+  .timeline li:not(:last-child)::before{left:44px;right:12px;top:16px;bottom:auto;width:auto;height:1px}
+  .timeline p{padding-top:0;font-size:18px}
+}
+
+/* Questions */
+.faq{display:grid;gap:10px;margin-top:34px}
+.qa{border-radius:18px;background:var(--card);border:1px solid var(--line)}
+.qa summary{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:44px;padding:16px 20px;cursor:pointer;list-style:none;font:500 16.5px/1.4 var(--sans);letter-spacing:-.01em;border-radius:18px}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary:focus-visible{outline:2px solid var(--text);outline-offset:2px}
+.qa .chev{flex:none;width:18px;height:18px;color:var(--muted)}
+.qa[open] .chev{transform:rotate(180deg)}
+.qa p{padding:0 20px 18px;margin-top:-4px;font-size:15px;color:var(--muted)}
+.faq-col{display:grid;gap:10px;align-content:start}
+@media (min-width:900px){
+  .faq{grid-template-columns:1fr 1fr;gap:12px;align-items:start;margin-top:40px}
+}
+
+/* Closing */
+.final{position:relative;overflow:hidden;padding:132px 0 150px;text-align:center;
+  background-color:#0a1524;background-image:linear-gradient(#000, #000 5.5%, rgba(0,0,0,.75) 17.5%, rgba(0,0,0,.3) 32%, rgba(0,0,0,0) 46%, rgba(0,0,0,0) 66%, rgba(0,0,0,.35) 76%, rgba(0,0,0,.8) 86%, #000 94%), var(--hero-sky)}
+.final h2{font-size:clamp(50px,14.4vw,80px);line-height:1}
+.final .wrap{position:relative;z-index:1;max-width:640px}
+.final p{max-width:38ch;margin:18px auto 0;font-size:17px;color:rgba(240,240,240,.8);text-wrap:balance}
+.final .btn{margin-top:30px}
+.final .tiny{margin-top:14px;font-size:14px;color:rgba(240,240,240,.62)}
+@media (min-width:700px){.final{padding:210px 0 230px;background-image:linear-gradient(#000, #000 4.8%, rgba(0,0,0,.75) 15%, rgba(0,0,0,.3) 28%, rgba(0,0,0,0) 40%, rgba(0,0,0,0) 60%, rgba(0,0,0,.35) 72%, rgba(0,0,0,.8) 84%, #000 93%), var(--sky-wide);background-size:100% 100%, cover}}
+
+/* Footer */
+.site-footer{padding:8px 0 calc(48px + env(safe-area-inset-bottom));font-size:14px;color:var(--faint)}
+.foot{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.foot .brand{color:var(--text)}
+.disclose{max-width:60ch;margin-top:8px;font-size:13.5px;line-height:1.55;color:var(--faint);text-wrap:pretty}
+.foot-link{display:inline-flex;align-items:center;min-height:44px;padding:0 8px;font-size:14px;color:var(--muted);text-decoration:none}
+.foot-link:hover{color:var(--text)}
+</style>
+<!-- Meta Pixel (dataset "Winston Website"): PageView only. This page has no form, so it sends no Lead events -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1432211359002093');
+fbq('track', 'PageView');
+</script>
+<!-- Vercel Web Analytics: cookieless visit and page view counts -->
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1432211359002093&amp;ev=PageView&amp;noscript=1"></noscript>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-check" viewBox="0 0 20 20"><path d="m4.5 10.2 3.6 3.6L15.5 6.2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="logo" viewBox="0 0 32 32"><rect x="1.75" y="1.75" width="28.5" height="28.5" rx="8" fill="#f0f0f0"/><rect x="9.5" y="8.25" width="13" height="13" rx="3.5" fill="#000"/></symbol>
+</svg>
+
+<!--
+  Every "See if you qualify" button goes to Aaron's micro1 company referral link (three places on this page).
+  Change all three hrefs together. micro1 only credits the referral if the company signs up through this link.
+-->
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Winston, back to top"><svg aria-hidden="true"><use href="#logo"/></svg><span>Winston</span></a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" id="hero">
+    <div class="wrap hero-inner">
+      <p class="pill"><span class="dot-l" aria-hidden="true"></span>Winston is a micro1 referral partner</p>
+      <h1><span class="l">Companies get paid</span> <span class="l">for your data</span></h1>
+      <p class="lede">The data your business generates every day is exactly what frontier labs need. micro1 licenses it, packages it, and pays you for it.</p>
+      <div class="hero-actions">
+        <a class="btn btn-light" href="https://company.micro1.ai/register/?referralCode=6bda2c64-40cf-4281-9eba-0879dbe88047&amp;utm_source=referral&amp;utm_medium=share&amp;utm_campaign=job_referral" rel="sponsored">See if you qualify</a>
+        <a class="btn btn-glass" href="#how">How it works</a>
+      </div>
+      <p class="hero-note">Free to apply. You'll continue on micro1's site.</p>
+    </div>
+
+    <div class="wrap hero-stage">
+      <div class="hero-clouds" aria-hidden="true"></div>
+      <article class="panel hero-card" aria-label="Example data package">
+        <div class="panel-top"><span>Example data package</span><span><b>Operating company</b></span></div>
+        <h3 class="panel-title">Regional logistics company</h3>
+        <p class="panel-meta">140 employees · 9 years · US</p>
+        <ul class="pkg">
+          <li><span class="tick"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span>SOPs</li>
+          <li><span class="tick"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span>Knowledge base</li>
+          <li><span class="tick"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span>CRM history</li>
+          <li><span class="tick"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span>QA records</li>
+        </ul>
+        <div class="score"><span>Personal details</span><b>Scrubbed before use</b></div>
+        <div class="score"><span>Ownership</span><b>Stays with you</b></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="data">
+    <div class="wrap">
+      <div class="who-panel">
+        <div class="head">
+          <h2>What counts as data</h2>
+          <p class="sub">The everyday records of how your team works. If your company writes things down, you likely have more than you think.</p>
+        </div>
+        <ul class="chips" aria-label="Types of data micro1 looks for">
+          <li>SOPs</li><li>Playbooks</li><li>Knowledge bases</li><li>Internal docs</li><li>CRM metadata</li><li>Project histories</li><li>QA processes</li><li>Templates</li><li>Team communications</li><li>Slack and Teams history</li>
+        </ul>
+        <p class="note">Every industry counts, from software and finance to logistics and legal.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="qualify" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <h2>Two ways to qualify</h2>
+        <p class="sub">micro1 runs two programs: one for companies still operating, and one for companies that have shut down.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="visual" style="--pos:4% 46%" aria-hidden="true">
+            <div class="panel">
+              <div class="co"><span class="co-name">Your company</span><span class="status">Operating</span></div>
+              <ul class="facts">
+                <li><span>Employees</span><b>30+</b></li>
+                <li><span>Years in business</span><b>2+</b></li>
+                <li><span>Data in English</span><b>70%+</b></li>
+              </ul>
+            </div>
+          </div>
+          <h3>Operating companies</h3>
+          <p>Established teams with strong operations and years of documented work. US companies come first, then other Western markets.</p>
+        </article>
+        <article class="card">
+          <div class="visual" style="--pos:96% 42%" aria-hidden="true">
+            <div class="panel">
+              <div class="co"><span class="co-name">Your former company</span><span class="status off">Closed</span></div>
+              <ul class="facts">
+                <li><span>Employees at its peak</span><b>50+</b></li>
+                <li><span>Slack or Teams history</span><b>Substantial</b></li>
+                <li><span>Language</span><b>English</b></li>
+              </ul>
+            </div>
+          </div>
+          <h3>Companies that have shut down</h3>
+          <p>Businesses in any industry that are no longer operating, based in one of these countries:</p>
+          <ul class="chips" aria-label="Eligible countries">
+            <li>US</li><li>UK</li><li>Canada</li><li>India</li><li>Australia</li><li>Singapore</li><li>Ireland</li><li>Netherlands</li><li>Germany</li><li>France</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="pay" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <h2>What it can pay</h2>
+        <p class="sub">micro1's published tiers for operating companies. Your offer depends on how much data you have, its quality, and how unique it is.</p>
+      </div>
+      <div class="sky-card" style="--pos:20% 40%">
+        <ul class="figures">
+          <li><span class="fig">$100K+</span><p>Qualified partnerships</p></li>
+          <li><span class="fig">$500K+</span><p>Large datasets or several teams</p></li>
+          <li><span class="fig">$1M+</span><p>Highly unique, proprietary data</p></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="yours" style="padding-top:0">
+    <div class="wrap">
+     <div class="yours-panel split">
+      <div>
+        <h2>Your data stays yours</h2>
+        <p class="sub">These are micro1's commitments, from its program pages. Your agreement with micro1 sets the final terms.</p>
+      </div>
+      <ul class="assure">
+        <li><h3>You keep ownership</h3><p>micro1 licenses your data. The underlying data stays your company's.</p></li>
+        <li><h3>You set the scope</h3><p>Before anything is shared, you agree on what's included, the security standards, and what gets redacted.</p></li>
+        <li><h3>Personal details are scrubbed</h3><p>Sensitive information is removed before any use. Some datasets are rewritten so the workflow stays but the link to real records doesn't.</p></li>
+        <li><h3>You see samples first</h3><p>You review representative samples before your data is used.</p></li>
+        <li><h3>Locked down, then deleted</h3><p>Only a small authorized team can access it, nothing is made public, and it's deleted after the agreed period or when you ask.</p></li>
+      </ul>
+     </div>
+    </div>
+  </section>
+
+  <section class="section" id="how" style="padding-top:0">
+    <div class="wrap">
+      <h2>How it works</h2>
+      <ol class="timeline">
+        <li><span class="dot">1</span><p><b>See if you qualify.</b> Create a company account on micro1's portal in a few minutes.</p></li>
+        <li><span class="dot">2</span><p><b>micro1 reviews your fit.</b> Usually a short assessment and an AI interview.</p></li>
+        <li><span class="dot">3</span><p><b>Talk it through.</b> A call covers your data, the scope, and your privacy needs.</p></li>
+        <li><span class="dot">4</span><p><b>Sign and get paid.</b> You agree on the scope and the price, and share only what's approved.</p></li>
+      </ol>
+      <div class="after"><a class="btn btn-light" href="https://company.micro1.ai/register/?referralCode=6bda2c64-40cf-4281-9eba-0879dbe88047&amp;utm_source=referral&amp;utm_medium=share&amp;utm_campaign=job_referral" rel="sponsored">See if you qualify</a></div>
+    </div>
+  </section>
+
+  <section class="section" id="faq" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <h2>Questions people ask</h2>
+        <p class="sub">Short answers to what most companies want to know first.</p>
+      </div>
+      <div class="faq">
+        <div class="faq-col">
+          <details class="qa" open><summary>Who runs this program?<svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6.2 8 10.2l4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p>micro1, an AI data company that builds training environments and evaluations for AI labs. Winston introduces companies to its data partnership program.</p></details>
+          <details class="qa"><summary>Why would AI labs pay for our data?<svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6.2 8 10.2l4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p>Public text is easy to find. Records of how real companies run are not. AI systems need them to learn real work: how teams follow processes, make decisions, and hand work off.</p></details>
+          <details class="qa"><summary>Do we keep ownership of our data?<svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6.2 8 10.2l4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p>Yes. micro1 licenses your data, and your company keeps ownership of it.</p></details>
+          <details class="qa"><summary>How is our data anonymized?<svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6.2 8 10.2l4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p>Personal and sensitive details are scrubbed before any use. Some datasets are also rewritten, keeping the workflow but not the link to real records. You agree on what gets redacted, and you review samples first.</p></details>
+        </div>
+        <div class="faq-col">
+          <details class="qa"><summary>How much will we be paid?<svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6.2 8 10.2l4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p>It depends on how much data you have, how complex and unique it is, and its quality. micro1's published tiers for operating companies start at $100K. Offers for companies that have shut down are set case by case.</p></details>
+          <details class="qa"><summary>Our company has shut down. Can we apply?<svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6.2 8 10.2l4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p>Yes, if it had 50 or more employees at its peak, has substantial Slack or Microsoft Teams history, and was based in one of the listed countries. The person applying should have authority over the company's records.</p></details>
+          <details class="qa"><summary>What happens when I click See if you qualify?<svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6.2 8 10.2l4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p>You'll go to micro1's data partnership portal and create a company account with your work email. micro1 takes it from there.</p></details>
+          <details class="qa"><summary>How is Winston involved?<svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6.2 8 10.2l4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p>Winston is a micro1 referral partner. Your application, agreement and payment are all with micro1, and Winston never sees your data.</p></details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final" id="final">
+    <div class="wrap">
+      <h2>Ready to apply?</h2>
+      <p>It takes a few minutes. Applying is free, and nothing is shared until you agree on the scope.</p>
+      <a class="btn btn-light" href="https://company.micro1.ai/register/?referralCode=6bda2c64-40cf-4281-9eba-0879dbe88047&amp;utm_source=referral&amp;utm_medium=share&amp;utm_campaign=job_referral" rel="sponsored">See if you qualify</a>
+      <p class="tiny">Free to apply on micro1's site.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" id="footer">
+  <div class="wrap foot">
+    <span class="brand"><svg aria-hidden="true"><use href="#logo"/></svg><span>Winston</span></span>
+    <p class="disclose">Winston is an independent micro1 referral partner and may be compensated by micro1. This is not an official micro1 page, and program details may change.</p>
+    <a class="foot-link" href="/privacy">Privacy policy</a>
+  </div>
+</footer>
+</body>
+</html>
