@@ -67,6 +67,8 @@ a,button,label,input{touch-action:manipulation;-webkit-tap-highlight-color:trans
 .bar{height:64px;display:flex;align-items:center}
 .brand{display:inline-flex;align-items:center;gap:10px;min-height:44px;text-decoration:none;font:600 17px/1 var(--sans);letter-spacing:-.02em}
 .brand svg{width:24px;height:24px}
+/* Phones and tablets: the logo sits centered, with a little more room above it */
+@media (max-width:899px){.bar{height:78px;padding-top:14px;justify-content:center}}
 @media (min-width:900px){.bar{height:76px;justify-content:center}}
 
 /* Hero */
