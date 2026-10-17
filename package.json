@@ -6,7 +6,9 @@
   "engines": { "node": "24.x" },
   "scripts": {
     "migrate": "node scripts/migrate.mjs",
-    "leads": "node scripts/leads.mjs"
+    "leads": "node scripts/leads.mjs",
+    "migrate:company": "node scripts/migrate-company.mjs",
+    "leads:company": "node scripts/company-leads.mjs"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.1.0"

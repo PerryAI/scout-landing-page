@@ -8,8 +8,18 @@
 <meta property="og:title" content="Professionals, get paid for your judgment">
 <meta property="og:description" content="Nurses, physicians, attorneys, engineers, accountants and other professionals get paid $50 to $500 per mission to check work in their own field. Join the waitlist.">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Winston">
+<meta property="og:url" content="https://www.trywinston.app/">
+<meta property="og:image" content="https://www.trywinston.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Winston: Professionals, get paid for your judgment">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://www.trywinston.app/">
 <meta name="theme-color" content="#0a1524">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='1.75' y='1.75' width='28.5' height='28.5' rx='8' fill='%23f0f0f0'/%3E%3Crect x='9.5' y='8.25' width='13' height='13' rx='3.5' fill='%23000'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/fonts/inter.65850a37.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/instrument-serif.c008db4e.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/hero-clouds.e5f1f9b6.webp" as="image" type="image/webp" fetchpriority="high">
@@ -270,6 +280,10 @@ dialog.q::backdrop{background:rgba(0,0,0,.72)}
 .q-input::placeholder{color:rgba(240,240,240,.38)}
 .q-input:focus{outline:none;border-color:var(--text)}
 .q-input[aria-invalid="true"]{border-color:var(--error)}
+.q-textarea{display:block;width:100%;min-height:104px;margin-top:8px;padding:14px 16px;border-radius:16px;border:1px solid var(--line-2);background:#141619;color:var(--text);font:400 16px/1.45 var(--sans);resize:vertical}
+.q-textarea::placeholder{color:rgba(240,240,240,.38)}
+.q-textarea:focus{outline:none;border-color:var(--text)}
+.q-label .opt{font-weight:400;color:var(--faint)}
 .q-error{min-height:22px;margin-top:8px;font-size:14.5px;color:var(--error)}
 .q-fine{margin-top:12px;font-size:13.5px;color:var(--faint)}
 .q-foot{display:flex;flex-wrap:wrap;gap:6px 18px;padding:14px 22px calc(18px + env(safe-area-inset-bottom));border-top:1px solid var(--line);font-size:13.5px;color:var(--muted)}
@@ -297,6 +311,36 @@ fbq('track', 'PageView');
 <!-- Vercel Web Analytics: cookieless visit and page view counts -->
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
+<!-- Company identity for search engines, link previews and company-data providers. Add sameAs, email, foundingDate or address only once they are confirmed -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.trywinston.app/#organization",
+      "name": "Winston",
+      "url": "https://www.trywinston.app/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.trywinston.app/logo-512.png",
+        "width": 512,
+        "height": 512
+      },
+      "description": "Winston pays licensed and degreed professionals $50 to $500 per mission to review, grade, and sign off on work in their own field."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.trywinston.app/#website",
+      "name": "Winston",
+      "url": "https://www.trywinston.app/",
+      "publisher": {
+        "@id": "https://www.trywinston.app/#organization"
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1432211359002093&amp;ev=PageView&amp;noscript=1"></noscript>
@@ -322,9 +366,9 @@ fbq('track', 'PageView');
       <p class="lede">Licensed professionals earn $50 to $500 per mission reviewing work in their field, on their own time.</p>
       <div class="hero-actions">
         <button type="button" class="btn btn-light" data-open-qualifier>Join the waitlist</button>
-        <a class="btn btn-glass" href="#how">How it works</a>
+        <button type="button" class="btn btn-glass" data-open-company>For companies</button>
       </div>
-      <p class="hero-note">Free to join. Spots are limited.</p>
+      <p class="hero-note">Free for professionals. Spots are limited.</p>
     </div>
 
     <div class="wrap hero-stage">
@@ -557,6 +601,124 @@ fbq('track', 'PageView');
       <span>Free to join</span>
       <span>Takes about two minutes</span>
       <span>Leave anytime</span>
+    </div>
+  </div>
+</dialog>
+
+<!-- Company form: "For companies" in the hero. Saved by api/company.js in its own database, separate from the waitlist -->
+<dialog class="q" id="company" aria-labelledby="c-title-0">
+  <div class="q-inner">
+    <div class="q-top">
+      <button type="button" class="q-icon" data-c-back aria-label="Back"><svg class="i" aria-hidden="true"><use href="#i-back"/></svg></button>
+      <span class="q-count" id="c-count" aria-live="polite">Step 1 of 5</span>
+      <button type="button" class="q-icon" data-c-close aria-label="Close"><svg class="i" aria-hidden="true"><use href="#i-x"/></svg></button>
+    </div>
+    <div class="q-progress" id="c-progress" role="progressbar" aria-label="Progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20"><span id="c-bar"></span></div>
+
+    <div class="q-body">
+      <section class="q-step" data-step="0">
+        <h2 class="q-title" id="c-title-0" tabindex="-1">What are you looking for?</h2>
+        <p class="q-help">Pick all that apply.</p>
+        <div class="q-options">
+          <button type="button" class="q-opt" data-need="Grading" aria-pressed="false">Expert grading of model outputs<span class="tick2"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span></button>
+          <button type="button" class="q-opt" data-need="Tasks and rubrics" aria-pressed="false">Tasks with rubrics<span class="tick2"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span></button>
+          <button type="button" class="q-opt" data-need="Reference solutions" aria-pressed="false">Worked reference solutions<span class="tick2"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span></button>
+          <button type="button" class="q-opt" data-need="Red-teaming" aria-pressed="false">Red-teaming your graders<span class="tick2"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span></button>
+          <button type="button" class="q-opt" data-need="Custom project" aria-pressed="false">Experts for a custom project<span class="tick2"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span></button>
+          <button type="button" class="q-opt" data-need="Something else" aria-pressed="false">Something else<span class="tick2"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span></button>
+        </div>
+        <p class="q-error" id="c-needs-error" role="alert"></p>
+        <button type="button" class="btn btn-light btn-block" data-c-next>Continue</button>
+      </section>
+
+      <section class="q-step" data-step="1" hidden>
+        <h2 class="q-title" id="c-title-1" tabindex="-1">Which fields do you need experts in?</h2>
+        <p class="q-help">Pick all that apply.</p>
+        <div class="q-options two">
+          <button type="button" class="q-opt" data-cfield="Nursing" aria-pressed="false">Nursing<span class="tick2"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span></button>
+          <button type="button" class="q-opt" data-cfield="Medicine" aria-pressed="false">Medicine<span class="tick2"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span></button>
+          <button type="button" class="q-opt" data-cfield="Law" aria-pressed="false">Law<span class="tick2"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span></button>
+          <button type="button" class="q-opt" data-cfield="Engineering" aria-pressed="false">Engineering<span class="tick2"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span></button>
+          <button type="button" class="q-opt" data-cfield="Accounting" aria-pressed="false">Accounting<span class="tick2"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span></button>
+          <button type="button" class="q-opt" data-cfield="Pharmacy" aria-pressed="false">Pharmacy<span class="tick2"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span></button>
+          <button type="button" class="q-opt" data-cfield="Consulting" aria-pressed="false">Consulting<span class="tick2"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span></button>
+          <button type="button" class="q-opt" data-cfield="Finance" aria-pressed="false">Finance<span class="tick2"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span></button>
+          <button type="button" class="q-opt span" data-cfield="Other" aria-pressed="false">Another field<span class="tick2"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span></button>
+        </div>
+        <div class="q-other" id="c-field-other" hidden>
+          <label class="q-label" for="c-field-other-input">Which other field?</label>
+          <input class="q-input" id="c-field-other-input" type="text" maxlength="100" autocomplete="off" autocapitalize="words" enterkeyhint="next" spellcheck="false" placeholder="For example: Radiology">
+        </div>
+        <p class="q-error" id="c-fields-error" role="alert"></p>
+        <button type="button" class="btn btn-light btn-block" data-c-next>Continue</button>
+      </section>
+
+      <section class="q-step" data-step="2" hidden>
+        <h2 class="q-title" id="c-title-2" tabindex="-1">What best describes your company?</h2>
+        <div class="q-options">
+          <button type="button" class="q-opt" data-industry="Frontier AI lab" aria-pressed="false">Frontier AI lab<span class="tick2"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span></button>
+          <button type="button" class="q-opt" data-industry="AI lab or startup" aria-pressed="false">AI lab or startup training models<span class="tick2"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span></button>
+          <button type="button" class="q-opt" data-industry="AI product company" aria-pressed="false">AI product company<span class="tick2"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span></button>
+          <button type="button" class="q-opt" data-industry="Healthcare" aria-pressed="false">Healthcare<span class="tick2"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span></button>
+          <button type="button" class="q-opt" data-industry="Legal" aria-pressed="false">Legal<span class="tick2"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span></button>
+          <button type="button" class="q-opt" data-industry="Financial services" aria-pressed="false">Financial services<span class="tick2"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span></button>
+          <button type="button" class="q-opt" data-industry="Other" aria-pressed="false">Another industry<span class="tick2"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span></button>
+        </div>
+        <div class="q-other" id="c-industry-other" hidden>
+          <label class="q-label" for="c-industry-other-input">What industry are you in?</label>
+          <input class="q-input" id="c-industry-other-input" type="text" maxlength="100" autocomplete="off" autocapitalize="words" enterkeyhint="next" spellcheck="false" placeholder="For example: Insurance">
+          <p class="q-error" id="c-industry-error" role="alert"></p>
+          <button type="button" class="btn btn-light btn-block" data-c-next>Continue</button>
+        </div>
+      </section>
+
+      <section class="q-step" data-step="3" hidden>
+        <h2 class="q-title" id="c-title-3" tabindex="-1">What's your budget?</h2>
+        <p class="q-help">A rough range is fine.</p>
+        <div class="q-options">
+          <button type="button" class="q-opt" data-budget="Under $10K" aria-pressed="false">Under $10K<span class="tick2"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span></button>
+          <button type="button" class="q-opt" data-budget="$10K–$50K" aria-pressed="false">$10K–$50K<span class="tick2"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span></button>
+          <button type="button" class="q-opt" data-budget="$50K–$250K" aria-pressed="false">$50K–$250K<span class="tick2"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span></button>
+          <button type="button" class="q-opt" data-budget="$250K–$1M" aria-pressed="false">$250K–$1M<span class="tick2"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span></button>
+          <button type="button" class="q-opt" data-budget="$1M+" aria-pressed="false">$1M+<span class="tick2"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span></button>
+          <button type="button" class="q-opt" data-budget="Not sure yet" aria-pressed="false">Not sure yet<span class="tick2"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span></button>
+        </div>
+      </section>
+
+      <section class="q-step" data-step="4" hidden>
+        <h2 class="q-title" id="c-title-4" tabindex="-1">How can we reach you?</h2>
+        <p class="q-help">We'll reply by email about your request.</p>
+        <form id="c-form" novalidate>
+          <div class="hp" aria-hidden="true"><label for="c-ref">Reference code, leave blank</label><input id="c-ref" name="reference_code" type="text" tabindex="-1" autocomplete="off"></div>
+          <label class="q-label" for="c-name">Your name</label>
+          <input class="q-input" id="c-name" type="text" name="name" autocomplete="name" autocapitalize="words" enterkeyhint="next" maxlength="100" placeholder="Jordan Lee" required>
+          <label class="q-label" for="c-job">Job title</label>
+          <input class="q-input" id="c-job" type="text" name="title" autocomplete="organization-title" autocapitalize="words" enterkeyhint="next" maxlength="100" placeholder="Head of data" required>
+          <label class="q-label" for="c-email">Work email</label>
+          <input class="q-input" id="c-email" type="email" name="email" autocomplete="email" inputmode="email" enterkeyhint="next" autocapitalize="none" autocorrect="off" spellcheck="false" maxlength="254" placeholder="you@company.com" required>
+          <label class="q-label" for="c-company">Company</label>
+          <input class="q-input" id="c-company" type="text" name="company" autocomplete="organization" autocapitalize="words" enterkeyhint="next" maxlength="150" placeholder="Company name" required>
+          <label class="q-label" for="c-website">Company website</label>
+          <input class="q-input" id="c-website" type="url" name="website" autocomplete="url" inputmode="url" enterkeyhint="next" autocapitalize="none" autocorrect="off" spellcheck="false" maxlength="200" placeholder="yourcompany.com" required>
+          <label class="q-label" for="c-notes">Anything else we should know? <span class="opt">(optional)</span></label>
+          <textarea class="q-textarea" id="c-notes" name="notes" maxlength="2000" rows="3" placeholder="Timeline, volume, or the tasks your model struggles with"></textarea>
+          <p class="q-error" id="c-error" role="alert"></p>
+          <button type="submit" class="btn btn-light btn-block"><span id="c-submit-label">Send request</span></button>
+          <p class="q-fine">We'll only use this to reply about your request. <a href="/privacy">Privacy policy</a></p>
+        </form>
+      </section>
+
+      <section class="q-step" data-step="5" hidden>
+        <svg class="r-seal" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="25" fill="#f0f0f0"/><path d="m16.5 26.5 6 6L36 19" fill="none" stroke="#050505" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h2 class="q-title" id="c-title-5" tabindex="-1">Thanks, we'll be in touch.</h2>
+        <p class="r-text" id="c-r-text"></p>
+        <button type="button" class="btn btn-light btn-block r-done" data-c-close>Done</button>
+      </section>
+    </div>
+
+    <div class="q-foot">
+      <span>Takes about two minutes</span>
+      <span>No commitment</span>
     </div>
   </div>
 </dialog>
@@ -842,10 +1004,292 @@ fbq('track', 'PageView');
     });
   });
 
-  // Every CTA on the page opens the same qualifier.
+  // Every "Join the waitlist" button opens the same qualifier.
   document.addEventListener('click', function (e) {
     var opener = e.target.closest('[data-open-qualifier]');
     if (opener && !dlg.contains(opener)) { e.preventDefault(); openQualifier(); }
+  });
+
+})();
+</script>
+<script>
+(function () {
+  'use strict';
+
+  // Company requests are saved by the Vercel function in api/company.js, in their own Neon database
+  // (winston-company-leads), separate from the expert waitlist.
+  var COMPANY_ENDPOINT = '/api/company';
+
+  var $ = function (s, el) { return (el || document).querySelector(s); };
+  var $$ = function (s, el) { return Array.prototype.slice.call((el || document).querySelectorAll(s)); };
+
+  function track(event, data) {
+    window.dataLayer = window.dataLayer || [];
+    var entry = { event: event };
+    for (var k in data) { if (Object.prototype.hasOwnProperty.call(data, k)) entry[k] = data[k]; }
+    window.dataLayer.push(entry);
+  }
+
+  var attribution = {};
+  try {
+    var params = new URLSearchParams(location.search);
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid', 'gclid'].forEach(function (k) {
+      var v = params.get(k);
+      if (v) attribution[k] = v;
+    });
+  } catch (e) {}
+
+  var dlg = $('#company');
+  var TOTAL = 5;
+  var state = { step: 0, needs: [], fields: [], fieldOther: '', industry: '', industryOther: '', budget: '', email: '', done: false };
+  var advancing = false;
+
+  function has(list, value) { return list.indexOf(value) > -1; }
+  function tidy(value) { return value.replace(/\s+/g, ' ').trim(); }
+
+  function render(moveFocus) {
+    var step = state.done ? TOTAL : state.step;
+    $$('.q-step', dlg).forEach(function (s) { s.hidden = Number(s.getAttribute('data-step')) !== step; });
+    $('#c-count').textContent = state.done ? 'All set' : 'Step ' + (step + 1) + ' of ' + TOTAL;
+    var pct = state.done ? 100 : Math.round(((step + 1) / TOTAL) * 100);
+    $('#c-bar').style.width = pct + '%';
+    $('#c-progress').setAttribute('aria-valuenow', String(pct));
+    $('[data-c-back]', dlg).style.visibility = (step > 0 && !state.done) ? 'visible' : 'hidden';
+    $$('[data-need]', dlg).forEach(function (b) { b.setAttribute('aria-pressed', String(has(state.needs, b.getAttribute('data-need')))); });
+    $$('[data-cfield]', dlg).forEach(function (b) { b.setAttribute('aria-pressed', String(has(state.fields, b.getAttribute('data-cfield')))); });
+    $$('[data-industry]', dlg).forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-industry') === state.industry)); });
+    $$('[data-budget]', dlg).forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-budget') === state.budget)); });
+    $('#c-field-other').hidden = !has(state.fields, 'Other');
+    $('#c-industry-other').hidden = state.industry !== 'Other';
+    var current = $('.q-step[data-step="' + step + '"]', dlg);
+    if (current) dlg.setAttribute('aria-labelledby', current.querySelector('.q-title').id);
+    if (moveFocus && current) {
+      var target = (step === 4 && !state.done) ? $('#c-name') : current.querySelector('.q-title');
+      if (target) target.focus({ preventScroll: true });
+    }
+  }
+
+  function openCompany() {
+    render(false);
+    if (typeof dlg.showModal === 'function') { if (!dlg.open) dlg.showModal(); }
+    else { dlg.setAttribute('open', ''); }
+    document.documentElement.classList.add('is-locked');
+    render(true);
+    track('winston_company_open', {});
+  }
+
+  function closeCompany() {
+    if (!dlg.open) return;
+    if (typeof dlg.close === 'function') dlg.close();
+    else { dlg.removeAttribute('open'); document.documentElement.classList.remove('is-locked'); }
+  }
+
+  dlg.addEventListener('close', function () { document.documentElement.classList.remove('is-locked'); });
+
+  function clearErrors() {
+    $$('.q-error', dlg).forEach(function (el) { el.textContent = ''; });
+    $$('[aria-invalid]', dlg).forEach(function (el) { el.removeAttribute('aria-invalid'); });
+  }
+
+  function showError(id, message, input) {
+    $(id).textContent = message;
+    if (input) { input.setAttribute('aria-invalid', 'true'); input.focus(); }
+  }
+
+  function toggle(list, value) {
+    var i = list.indexOf(value);
+    if (i > -1) list.splice(i, 1); else list.push(value);
+  }
+
+  // The first two steps allow several picks, so they move on with Continue instead of on the first tap.
+  // Step 3 reaches Continue only when "Another industry" is picked.
+  function continueStep() {
+    clearErrors();
+    if (state.step === 0 && !state.needs.length) return showError('#c-needs-error', 'Pick at least one.');
+    if (state.step === 1) {
+      if (!state.fields.length) return showError('#c-fields-error', 'Pick at least one field.');
+      state.fieldOther = '';
+      if (has(state.fields, 'Other')) {
+        var field = $('#c-field-other-input');
+        var fieldValue = tidy(field.value);
+        if (fieldValue.length < 2) return showError('#c-fields-error', 'Tell us which other field you need.', field);
+        field.value = fieldValue;
+        state.fieldOther = fieldValue;
+      }
+    }
+    if (state.step === 2) {
+      var industry = $('#c-industry-other-input');
+      var industryValue = tidy(industry.value);
+      if (industryValue.length < 2) return showError('#c-industry-error', 'Tell us your industry.', industry);
+      industry.value = industryValue;
+      state.industryOther = industryValue;
+    }
+    track('winston_company_step', { step: state.step + 1 });
+    state.step = Math.min(state.step + 1, TOTAL - 1);
+    render(true);
+  }
+
+  // Single-choice steps move on by themselves, except "Another industry", which opens a box to type it.
+  function choose(key, value) {
+    if (advancing) return;
+    clearErrors();
+    state[key] = value;
+    if (key === 'industry' && value === 'Other') {
+      render(false);
+      $('#c-industry-other-input').focus();
+      return;
+    }
+    if (key === 'industry') { state.industryOther = ''; $('#c-industry-other-input').value = ''; }
+    advancing = true;
+    render(false);
+    track('winston_company_step', { step: state.step + 1, answer: value });
+    window.setTimeout(function () {
+      state.step = Math.min(state.step + 1, TOTAL - 1);
+      advancing = false;
+      render(true);
+    }, 180);
+  }
+
+  dlg.addEventListener('click', function (e) {
+    if (e.target === dlg) { closeCompany(); return; }
+    var b = e.target.closest('button');
+    if (!b || !dlg.contains(b)) return;
+    if (b.hasAttribute('data-need')) { toggle(state.needs, b.getAttribute('data-need')); clearErrors(); render(false); }
+    else if (b.hasAttribute('data-cfield')) {
+      toggle(state.fields, b.getAttribute('data-cfield'));
+      clearErrors();
+      render(false);
+      if (b.getAttribute('data-cfield') === 'Other' && has(state.fields, 'Other')) $('#c-field-other-input').focus();
+    }
+    else if (b.hasAttribute('data-industry')) choose('industry', b.getAttribute('data-industry'));
+    else if (b.hasAttribute('data-budget')) choose('budget', b.getAttribute('data-budget'));
+    else if (b.hasAttribute('data-c-next')) continueStep();
+    else if (b.hasAttribute('data-c-back')) { clearErrors(); state.step = Math.max(0, state.step - 1); render(true); }
+    else if (b.hasAttribute('data-c-close')) closeCompany();
+  });
+
+  ['#c-field-other-input', '#c-industry-other-input'].forEach(function (id) {
+    $(id).addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') { e.preventDefault(); continueStep(); }
+    });
+  });
+
+  // Same rule as the server: "acme.com", "www.acme.com/team" or a full http(s) address.
+  function looksLikeWebsite(value) {
+    var raw = value.trim();
+    if (!raw || /\s/.test(raw)) return false;
+    try {
+      var url = new URL(/^[a-z][a-z0-9+.-]*:\/\//i.test(raw) ? raw : 'https://' + raw);
+      return /^https?:$/.test(url.protocol) && /^[^.]+\..+[a-z0-9]$/i.test(url.hostname);
+    } catch (e) { return false; }
+  }
+
+  function showResult() {
+    var text = $('#c-r-text');
+    text.textContent = '';
+    var email = document.createElement('strong');
+    email.textContent = state.email;
+    text.appendChild(document.createTextNode('We’ll email '));
+    text.appendChild(email);
+    text.appendChild(document.createTextNode(' about your request.'));
+  }
+
+  // Sends the request to the server. Resolves with { status, data }; rejects on a network error or timeout.
+  function submitRequest(contact) {
+    var payload = {
+      needs: state.needs.slice(),
+      fields: state.fields.slice(),
+      field_other: has(state.fields, 'Other') ? state.fieldOther : '',
+      industry: state.industry,
+      industry_other: state.industry === 'Other' ? state.industryOther : '',
+      budget: state.budget,
+      name: contact.name,
+      title: contact.title,
+      email: contact.email,
+      company: contact.company,
+      website: contact.website,
+      notes: contact.notes,
+      reference_code: $('#c-ref').value
+    };
+    for (var k in attribution) payload[k] = attribution[k];
+    var controller = 'AbortController' in window ? new AbortController() : null;
+    var timer = controller ? window.setTimeout(function () { controller.abort(); }, 12000) : null;
+    return fetch(COMPANY_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload),
+      signal: controller ? controller.signal : undefined
+    }).then(function (res) {
+      return res.json().catch(function () { return {}; }).then(function (data) { return { status: res.status, data: data }; });
+    }).then(function (result) {
+      if (timer) window.clearTimeout(timer);
+      return result;
+    }, function (err) {
+      if (timer) window.clearTimeout(timer);
+      throw err;
+    });
+  }
+
+  // A custom event, so company requests don't count as waitlist Leads in the ad campaigns.
+  function trackRequest() {
+    if (typeof window.fbq === 'function') window.fbq('trackCustom', 'CompanyLead', { industry: state.industry, budget: state.budget });
+    track('winston_company_lead', { industry: state.industry, budget: state.budget, needs: state.needs.join(', ') });
+  }
+
+  var sending = false;
+  $('#c-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (sending) return;
+    clearErrors();
+    var inputs = { name: $('#c-name'), title: $('#c-job'), email: $('#c-email'), company: $('#c-company'), website: $('#c-website') };
+    var contact = {
+      name: tidy(inputs.name.value),
+      title: tidy(inputs.title.value),
+      email: inputs.email.value.trim(),
+      company: tidy(inputs.company.value),
+      website: inputs.website.value.trim(),
+      notes: $('#c-notes').value.trim()
+    };
+    if (contact.name.length < 2) return showError('#c-error', 'Enter your name.', inputs.name);
+    if (contact.title.length < 2) return showError('#c-error', 'Enter your job title.', inputs.title);
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(contact.email)) return showError('#c-error', 'Enter a valid work email.', inputs.email);
+    if (!contact.company) return showError('#c-error', 'Enter your company name.', inputs.company);
+    if (!looksLikeWebsite(contact.website)) return showError('#c-error', 'Enter your company website, like yourcompany.com.', inputs.website);
+    state.email = contact.email;
+
+    var button = $('#c-form button[type="submit"]');
+    var label = $('#c-submit-label');
+    sending = true;
+    button.disabled = true;
+    label.textContent = 'Sending…';
+    submitRequest(contact).then(function (result) {
+      if (result.status >= 200 && result.status < 300 && result.data && result.data.ok) {
+        trackRequest();
+        state.done = true;
+        showResult();
+        render(true);
+      } else if (result.data && result.data.error === 'invalid_email') {
+        showError('#c-error', 'Enter a valid work email.', inputs.email);
+      } else if (result.data && result.data.error === 'invalid_website') {
+        showError('#c-error', 'Enter your company website, like yourcompany.com.', inputs.website);
+      } else if (result.data && result.data.error === 'invalid_contact') {
+        showError('#c-error', 'Check your name, job title and company.', inputs.name);
+      } else {
+        showError('#c-error', 'We could not save that just now. Please try again in a moment.');
+      }
+    }).catch(function () {
+      showError('#c-error', 'We could not reach the server. Check your connection and try again.');
+    }).then(function () {
+      sending = false;
+      button.disabled = false;
+      label.textContent = 'Send request';
+    });
+  });
+
+  // "For companies" opens this form.
+  document.addEventListener('click', function (e) {
+    var opener = e.target.closest('[data-open-company]');
+    if (opener && !dlg.contains(opener)) { e.preventDefault(); openCompany(); }
   });
 
 })();

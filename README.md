@@ -31,6 +31,18 @@ node --env-file=.env.local scripts/leads.mjs > leads.csv
 
 Or open the Neon dashboard from the project's Storage tab in Vercel and run `SELECT * FROM signups ORDER BY created_at DESC;`.
 
+## Company requests (separate database)
+
+The hero's "For companies" button opens a 5-step form (what they need, which fields, company type, budget, contact details). It POSTs to `/api/company`, and `api/company.js` saves one row per work email in the `company_leads` table of its own Neon database, `winston-company-leads`. That function only reads `COMPANY_DATABASE_URL`, so company requests never touch the expert waitlist. `status` starts as `new`.
+
+```
+vercel integration add neon --name winston-company-leads --prefix COMPANY_ --plan free_v3 -e production -e preview
+COMPANY_DATABASE_URL=... node scripts/migrate-company.mjs        # creates company_leads from db/company-schema.sql
+COMPANY_DATABASE_URL=... node scripts/company-leads.mjs > company-leads.csv
+```
+
+The connection string is marked Sensitive in Vercel, so `vercel env pull` can't read it. Copy it from the database's page in Vercel (Storage) or from the Neon console.
+
 ## Deploying
 
 Pushing to `main` deploys production. Other branches get a login-protected Preview.
